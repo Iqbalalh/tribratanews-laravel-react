@@ -3,7 +3,7 @@ import NavBar from "@/Components/NavBar"
 export default function () {
     return (
         <>
-            <div className="header lg:mx-80 md:mx-100 my-5">
+            <div className="header">
                 <NavBar />
             </div>
 
