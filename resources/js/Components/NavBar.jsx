@@ -35,7 +35,7 @@ export default function NavBar() {
                 </div>
             </div>
 
-            <div class="marquee px-4 py-1 flex items-center overflow-hidden whitespace-nowrap">
+            <div class="marquee px-4 py-1 mb-1 flex items-center overflow-hidden whitespace-nowrap">
                 <span class="inline-block mr-2">Breaking News : </span>
                 <div class="marquee-scroll">
                     <marquee loop class="pl-2 flex space-x-4">
