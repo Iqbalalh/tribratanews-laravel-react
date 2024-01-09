@@ -9,7 +9,7 @@ export default function NavBar() {
             <div className="flex justify-between items-center px-4 my-3">
                 <img className="max-w-32" src="/assets/logo.png" alt=""/>
                 <div className="flex items-center space-x-2">
-                    <TextInput rightIcon={IoIosSearch} type="text" className="visible md:visible" placeholder="search"/>
+                    <TextInput rightIcon={IoIosSearch} type="text" className="visible ml-2 md:visible" placeholder="search"/>
                     <div className="hidden md:flex items-center space-x-2">
                         <a href=""><img src="/assets/twitter.png" alt="" /></a>
                         <a href=""><img src="/assets/instagram.png" alt="" /></a>

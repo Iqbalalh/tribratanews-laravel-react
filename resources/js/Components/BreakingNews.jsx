@@ -1,15 +1,17 @@
 import CategoryTag from "./CategoryTag"
+import SideTitle from "./SideTitle"
+import DateText from "./DateText"
 
 export default function BreakingNews() {
     return (
         <div class="flex items-center">
-            <div class="w-1/2">
-                <img src="assets/twitter.png" alt="Side Image" class="w-32" />
+            <div class="w-1/3">
+                <img src="assets/twitter.png" alt="Side Image" class="full" />
             </div>
-            <div class="w-1/2 px-4">
+            <div class="w-2/3 px-4">
                 <CategoryTag category="Nasional" />
-                <h2 class="text-xl font-bold mb-2">Title Here</h2>
-                <p class="text-sm text-gray-500 mb-1">Date Here</p>
+                <SideTitle title="Judul Berita ini akan sangat panjang" />
+                <DateText date="10 Januari 2024" />
             </div>
         </div>
     )

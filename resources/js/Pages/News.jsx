@@ -9,18 +9,20 @@ export default function () {
                 <NavBar />
             </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 mb-4">
-                <div class="lg:col-span-2 md:col-span-2">
+            <div className="grid md:grid-cols-1 lg:grid-cols-3 mb-4">
+                {/* NewsCarousel takes the full width on <= md screens */}
+                <div className="lg:col-span-2 md:col-span-1">
                     <NewsCarousel />
                 </div>
 
-                <div class="lg:col-span-1 md:col-span-2">
-                    <div class="grid grid-cols-1 md:grid-rows-4 gap-4 h-full pr-4">
-                        <div class="bg-gray-200"><BreakingNews /></div>
-                        <div class="bg-gray-200"><BreakingNews /></div>
-                        <div class="bg-gray-200"><BreakingNews /></div>
-                        <div class="bg-gray-200"><BreakingNews /></div>
-                        <div class="bg-gray-200"><BreakingNews /></div>
+                {/* BreakingNews components */}
+                <div className="lg:col-span-1 md:col-span-1">
+                    <div className="grid grid-cols-1 md:grid-rows-4 gap-4 h-full pr-4">
+                        <div className=""><BreakingNews /></div>
+                        <div className=""><BreakingNews /></div>
+                        <div className=""><BreakingNews /></div>
+                        <div className=""><BreakingNews /></div>
+                        <div className=""><BreakingNews /></div>
                     </div>
                 </div>
             </div>
