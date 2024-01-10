@@ -6,7 +6,6 @@ export default function NewsCarousel({ props }) {
         <div className="px-4 h-48 md:h-64 lg:h-full img-carousel mb-4 overflow-hidden">
             <Carousel indicators={false}>
                 {props.headline.slice(0, 5).map((item, index) => (
-
                     <div className="item" key={index}>
                         <div className="text-overlay text-left absolute -inset-y-1/2 left-0 w-full h-full flex flex-col justify-end">
                             <div className="lg:p-4 p-2 bg-black leading-none bg-opacity-50">
