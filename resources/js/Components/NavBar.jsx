@@ -1,7 +1,7 @@
 import { TextInput, Button } from "flowbite-react"
 import { IoIosSearch } from "react-icons/io";
 
-export default function NavBar() {
+export default function NavBar({ props }) {
     return (
         <>
             <header className="block">
@@ -19,7 +19,7 @@ export default function NavBar() {
                 </div>
             </div>
 
-            <div className="flex justify-between items-center px-4 py-1 overflow-x-auto my-2 bg-red-900 whitespace-nowrap">
+            <div className="flex justify-between items-center py-1 overflow-x-auto mt-2 mb-1 bg-red-900 px-4 extend-bg whitespace-nowrap">
                 <div className="category flex space-x-5">
                     <a className="text-white" href="">Hukum</a>
                     <a className="text-white" href="">Sosial Budaya</a>
@@ -35,10 +35,11 @@ export default function NavBar() {
                 </div>
             </div>
 
-            <div class="marquee px-4 py-1 mb-1 flex items-center overflow-hidden whitespace-nowrap">
-                <span class="inline-block mr-2">Breaking News : </span>
-                <div class="marquee-scroll">
-                    <marquee loop class="pl-2 flex space-x-4">
+            <div className="marquee px-4 py-1 mb-1 flex items-center overflow-hidden whitespace-nowrap">
+                <span className="inline-block mr-2">Breaking News : </span>
+                <div className="marquee-scroll">
+                    <marquee className="pl-2 flex space-x-4">
+                        <a href="">This is a sample scrolling text that scrolls to the right.</a>
                         <a href="">This is a sample scrolling text that scrolls to the right.</a>
                         <a href="">This is a sample scrolling text that scrolls to the right.</a>
                         <a href="">This is a sample scrolling text that scrolls to the right.</a>

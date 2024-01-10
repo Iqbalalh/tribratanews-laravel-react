@@ -1,14 +1,22 @@
 import { Carousel } from 'flowbite-react';
+import DateText from './DateText';
 
-export default function NewsCarousel() {
+export default function NewsCarousel({ props }) {
     return (
-        <div className="px-4 h-full">
-            <Carousel>
-                <img src="https://flowbite.com/docs/images/carousel/carousel-1.svg" alt="..." />
-                <img src="https://flowbite.com/docs/images/carousel/carousel-2.svg" alt="..." />
-                <img src="https://flowbite.com/docs/images/carousel/carousel-3.svg" alt="..." />
-                <img src="https://flowbite.com/docs/images/carousel/carousel-4.svg" alt="..." />
-                <img src="https://flowbite.com/docs/images/carousel/carousel-5.svg" alt="..." />
+        <div className="px-4 h-48 md:h-64 lg:h-full img-carousel mb-4 overflow-hidden">
+            <Carousel indicators={false}>
+                {props.headline.slice(0, 5).map((item, index) => (
+
+                    <div className="item" key={index}>
+                        <div className="text-overlay text-left absolute -inset-y-1/2 left-0 w-full h-full flex flex-col justify-end">
+                            <div className="lg:p-4 p-2 bg-black leading-none bg-opacity-50">
+                                <h2 className='lg:text-2xl text-md pb-1 text-white'>{item.title}</h2>
+                                <DateText date={item.time} textColor="text-white" textSize="lg:text-md text-xs"/>
+                            </div>
+                        </div>
+                        <img src={item.image} alt="..." className="h-fit w-full object-cover" />
+                    </div>
+                ))}
             </Carousel>
         </div>
     )

@@ -1,7 +1,7 @@
 export default function CategoryTag({ category }) {
     return (
-        <h2 className="font-weight-600 py-1 text-sm w-min px-2 rounded-md bg-red-900 text-white">
+        <p className="font-weight-600 sm:py-0 py-1 text-xs w-min px-2 rounded-sm bg-red-900 text-white">
            {category}
-        </h2>
+        </p>
     )
 }
