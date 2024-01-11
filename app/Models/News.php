@@ -18,6 +18,7 @@ class News extends Model
         'category',
         'region',
         'authors',
+        'publish_status',
     ];
 
     protected $casts = [
@@ -33,5 +34,6 @@ class News extends Model
         'category' => '',
         'region' => '',
         'author' => '',
+        'publish_status' => '',
     ];
 }

@@ -1,7 +1,7 @@
 import { TextInput } from "flowbite-react"
 import { IoIosSearch } from "react-icons/io";
 
-export default function Sign(){
+export default function SignIn(){
     return(
         <>
             <div class="flex min-h-full flex-col justify-center px-6 py-12 lg:px-8">
