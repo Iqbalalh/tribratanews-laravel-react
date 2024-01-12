@@ -39,11 +39,9 @@ export default function NavBar({ props }) {
                 <span className="inline-block mr-2">Breaking News : </span>
                 <div className="marquee-scroll">
                     <marquee className="pl-2 flex space-x-4">
-                        <a href="">This is a sample scrolling text that scrolls to the right.</a>
-                        <a href="">This is a sample scrolling text that scrolls to the right.</a>
-                        <a href="">This is a sample scrolling text that scrolls to the right.</a>
-                        <a href="">This is a sample scrolling text that scrolls to the right.</a>
-                        <a href="">This is a sample scrolling text that scrolls to the right.</a>
+                        {props.headline.slice(0, 5).map((item) => (
+                            <a href="">{item.title}</a>
+                        ))}
                     </marquee>
                 </div>
             </div>

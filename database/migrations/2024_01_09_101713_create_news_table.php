@@ -17,6 +17,8 @@ class CreateNewsTable extends Migration {
             $table->string('category');
             $table->string('region');
             $table->string('author');
+            $table->string('publish_status');
+            $table->string('event');
             $table->timestamps();
         });
     }

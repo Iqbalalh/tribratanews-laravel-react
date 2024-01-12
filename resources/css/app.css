@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    font-family: sans-serif;
+}
+
+body {
+    overflow-x: hidden;
+}
+
 @media (min-width: 768px) {
   .extend-bg {
     position: relative;
@@ -9,7 +17,7 @@
     margin-right: calc(-50vw + 50%);
     left: 0%;
     right: 100%;
-    padding-left: 11.2%;
-    padding-right: 11.2%;
+    padding-left: 12%;
+    padding-right: 12%;
   }
 }

@@ -26,6 +26,7 @@ class NewsFactory extends Factory
             'region' => fake()->text(5),
             'author' => fake()->name,
             'publish_status' => fake()->boolean,
+            'event' => fake()->text(5)
         ];
     }
 }
