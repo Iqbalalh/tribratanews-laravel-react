@@ -3,15 +3,14 @@ import DateText from './DateText';
 
 export default function NewsCarousel({ props }) {
     return (
-        <div className="px-4 h-48 md:h-64 lg:h-full img-carousel mb-4 overflow-hidden">
+        <div className="px-4 h-48 md:h-64 lg:h-full img-carousel mb-4 overflow-hidden relative">
             <Carousel indicators={false}>
                 {props.headline.slice(0, 5).map((item, index) => (
-                    <div className="item" key={index}>
-                        <div className="lg:p-4 p-2 absolute bg-black leading-none bg-opacity-50">
-                            <h2 className='lg:text-2xl text-md pb-1 text-white'>{item.title}</h2>
+                    <div className="item bg-cover relative" key={index} style={{ backgroundImage: `url(${item.image})`, backgroundSize: 'cover', backgroundPosition: 'center', height: '100%' }}>
+                        <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white">
+                            <h2 className='lg:text-2xl underline text-md pb-1'>{item.title}</h2>
                             <DateText date={item.time} textColor="text-white" textSize="lg:text-md text-xs"/>
                         </div>
-                        <img src={item.image} alt="..." className="h-full w-full object-cover" />
                     </div>
                 ))}
             </Carousel>
