@@ -6,10 +6,6 @@
     font-family: sans-serif;
 }
 
-body {
-    overflow-x: hidden;
-}
-
 @media (min-width: 768px) {
   .extend-bg {
     position: relative;

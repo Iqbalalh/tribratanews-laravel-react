@@ -21,7 +21,7 @@ export default function DateText({ date, textColor, textSize }) {
         const hours = newDate.getHours().toString().padStart(2, '0');
         const minutes = newDate.getMinutes().toString().padStart(2, '0');
 
-        formattedDate = `${dayOfWeek}, ${day}-${month}-${year} - ${hours}:${minutes}`;
+        formattedDate = `${dayOfWeek}, ${day}-${month}-${year} - ${hours}:${minutes} WIB`;
     }
 
     return (
