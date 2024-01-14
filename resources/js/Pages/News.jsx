@@ -22,6 +22,7 @@ export default function (props) {
                         {props.headline.slice(0, 5).map((item) => (
                             <div className="w-full">
                                 <BreakingNews
+                                    id={item.id}
                                     image={item.image}
                                     title={item.title}
                                     category={item.category}
@@ -34,7 +35,6 @@ export default function (props) {
             </div>
 
             <div className="hl-row lg:w-10/12 grid md:grid-cols-2 lg:grid-cols-3 mb-4">
-                {/* <NewsHeader /> */}
                 <div className="lg:col-span-1 md:col-span-1">
                     <NewsCarousel props={props} />
                 </div>

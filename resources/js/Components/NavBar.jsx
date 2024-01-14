@@ -1,5 +1,6 @@
 import { TextInput, Button } from "flowbite-react";
 import { IoIosSearch } from "react-icons/io";
+import { Link } from "@inertiajs/react";
 
 export default function NavBar({ props }) {
     return (
@@ -15,51 +16,51 @@ export default function NavBar({ props }) {
                             placeholder="search"
                         />
                         <div className="hidden md:flex items-center space-x-2">
-                            <a href="">
+                            <Link href="">
                                 <img src="/assets/twitter.png" alt="" />
-                            </a>
-                            <a href="">
+                            </Link>
+                            <Link href="">
                                 <img src="/assets/instagram.png" alt="" />
-                            </a>
-                            <a href="">
+                            </Link>
+                            <Link href="">
                                 <img src="/assets/facebook.png" alt="" />
-                            </a>
-                            <a href="">
+                            </Link>
+                            <Link href="">
                                 <img src="/assets/youtube.png" alt="" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 </div>
 
                 <div className="flex justify-between items-center py-1 overflow-x-auto mt-2 mb-1 bg-red-900 px-4 extend-bg whitespace-nowrap">
                     <div className="category flex space-x-5">
-                        <a className="text-white" href="">
+                        <Link className="text-white" href="">
                             Hukum
-                        </a>
-                        <a className="text-white" href="">
+                        </Link>
+                        <Link className="text-white" href="">
                             Sosial Budaya
-                        </a>
-                        <a className="text-white" href="">
+                        </Link>
+                        <Link className="text-white" href="">
                             Keamanan
-                        </a>
-                        <a className="text-white" href="">
+                        </Link>
+                        <Link className="text-white" href="">
                             Kesehatan
-                        </a>
-                        <a className="text-white" href="">
+                        </Link>
+                        <Link className="text-white" href="">
                             Olahraga
-                        </a>
+                        </Link>
                     </div>
 
                     <div className="flex items-center space-x-5">
-                        <a className="text-white" href="">
+                        <Link className="text-white" href="">
                             Profil
-                        </a>
-                        <a className="text-white" href="">
+                        </Link>
+                        <Link className="text-white" href="">
                             Visi Misi
-                        </a>
-                        <a className="bg-white text-red-900 rounded-full py-1 px-2 hover:cursor-pointer">
+                        </Link>
+                        <Link className="bg-white text-red-900 rounded-full py-1 px-2 hover:cursor-pointer" href="/login">
                             Sign In
-                        </a>
+                        </Link>
                     </div>
                 </div>
 
@@ -68,7 +69,7 @@ export default function NavBar({ props }) {
                     <div className="marquee-scroll">
                         <marquee className="pl-2 flex space-x-4">
                             {props.headline.slice(0, 5).map((item) => (
-                                <a href="">{item.title}</a>
+                                <Link href="">{item.title}</Link>
                             ))}
                         </marquee>
                     </div>
