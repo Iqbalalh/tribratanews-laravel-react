@@ -5,7 +5,7 @@ import { Link } from "@inertiajs/react"
 
 export default function BreakingNews({ id, image, category, title, date }) {
     return (
-        <Link href={id}>
+        <Link href={`/berita/${id}`}>
             <div className="flex px-4">
                 <div className="w-1/3">
                     <img src={image} alt="Side Image" className="h-20 w-full object-cover" />

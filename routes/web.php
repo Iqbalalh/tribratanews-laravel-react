@@ -19,6 +19,8 @@ use Inertia\Inertia;
 
 Route::get('/', [NewsController::class, 'index']);
 
+Route::get('/berita/{id}', [NewsController::class, 'berita']);
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');

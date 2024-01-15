@@ -5,9 +5,11 @@ import { Link } from "@inertiajs/react";
 export default function NavBar({ props }) {
     return (
         <>
-            <header className="block">
-                <div className="flex justify-between items-center px-4 my-3">
-                    <img className="max-w-32" src="/assets/logo.png" alt="" />
+            <header className="block navbar">
+                <div className="flex justify-between items-center px-4 my-3 extend-bg">
+                    <Link href="/">
+                        <img className="max-w-32" src="/assets/logo.png" alt="" />
+                    </Link>
                     <div className="flex items-center space-x-2">
                         <TextInput
                             rightIcon={IoIosSearch}
@@ -34,24 +36,24 @@ export default function NavBar({ props }) {
 
                 <div className="flex justify-between items-center py-1 overflow-x-auto mt-2 mb-1 bg-red-900 px-4 extend-bg whitespace-nowrap">
                     <div className="category flex space-x-5">
-                        <Link className="text-white" href="">
+                        <Link className="text-white" href="/category/hukum">
                             Hukum
                         </Link>
-                        <Link className="text-white" href="">
+                        <Link className="text-white" href="/category/sosial-budaya">
                             Sosial Budaya
                         </Link>
-                        <Link className="text-white" href="">
+                        <Link className="text-white" href="/category/keamanan">
                             Keamanan
                         </Link>
-                        <Link className="text-white" href="">
+                        <Link className="text-white" href="/category/kesehatan">
                             Kesehatan
                         </Link>
-                        <Link className="text-white" href="">
+                        <Link className="text-white" href="/category/olahraga">
                             Olahraga
                         </Link>
                     </div>
 
-                    <div className="flex items-center space-x-5">
+                    <div className="flex pl-5 items-center space-x-5">
                         <Link className="text-white" href="">
                             Profil
                         </Link>
@@ -64,12 +66,14 @@ export default function NavBar({ props }) {
                     </div>
                 </div>
 
-                <div className="marquee px-4 py-1 mb-1 flex items-center overflow-hidden whitespace-nowrap">
+                <div className="marquee px-4 py-1 mb-1 flex items-center overflow-hidden extend-bg whitespace-nowrap">
                     <span className="inline-block mr-2">Breaking News : </span>
                     <div className="marquee-scroll">
-                        <marquee className="pl-2 flex space-x-4">
+                        <marquee className="pl-2 flex space-x-10">
                             {props.headline.slice(0, 5).map((item) => (
-                                <Link href="">{item.title}</Link>
+                                <Link className="hover:underline" key={item.id} href={`/berita/${item.id}`}>
+                                    {item.title}
+                                </Link>
                             ))}
                         </marquee>
                     </div>

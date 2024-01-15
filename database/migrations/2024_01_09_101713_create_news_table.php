@@ -13,7 +13,7 @@ class CreateNewsTable extends Migration {
             $table->string('image')->nullable();
             $table->string('image_caption', 100)->nullable();
             $table->dateTime('time');
-            $table->longText('content');
+            $table->text('content');
             $table->string('category');
             $table->string('region');
             $table->string('author');

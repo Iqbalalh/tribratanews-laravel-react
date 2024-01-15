@@ -25,4 +25,18 @@ class NewsController extends Controller
             'sport_home' => $sport_home,
         ]);
     }
+
+    public function berita($id) {
+        $detail = News::find($id);
+
+        $headline = News::where('publish_status', 1)
+                        ->latest()
+                        ->take(5)
+                        ->get();
+
+        return Inertia::render('NewsContent', [
+            'detail' => $detail,
+            'headline' => $headline,
+        ]);
+    }
 }

@@ -7,13 +7,12 @@ import NewsCardText from "@/Components/NewsCardText";
 
 export default function (props) {
     return (
-        <div className="lg:flex lg:flex-col items-center justify-center">
+        <div className="lg:flex lg:flex-col items-center justify-center" style={{ overflowX: 'hidden' }}>
             <Head title="Home" />
-            <div className="header lg:w-10/12">
+            <div className="header lg:w-full lg:fixed top-0 z-50 bg-white justify-center">
                 <NavBar props={props} />
             </div>
-
-            <div className="hl-row lg:w-10/12 grid md:grid-cols-2 lg:grid-cols-3 mb-4">
+            <div className="hl-row lg:w-10/12 lg:mt-40 grid md:grid-cols-2 lg:grid-cols-3 mb-4">
                 <div className="lg:col-span-2 md:col-span-1">
                     <NewsCarousel props={props} />
                 </div>
@@ -43,6 +42,7 @@ export default function (props) {
                         {props.sport_home.slice(0, 5).map((item) => (
                             <div className="w-full">
                                 <NewsCardText
+                                    id={item.id}
                                     title={item.title}
                                     category={item.category}
                                     date={item.time}
@@ -52,7 +52,7 @@ export default function (props) {
                     </div>
                 </div>
                 <div className="lg:col-span-1 md:col-span-1">
-                    <NewsCarousel props={props} />
+                    {/* <NewsCarousel props={props} /> */}
                 </div>
             </div>
 
