@@ -23,7 +23,7 @@ export default function (props) {
                 <div className="lg:w-full lg:col-span-1 md:col-span-1">
                     <div className="grid grid-cols-1 md:grid-rows-4 gap-4">
                         {props.headline.slice(0, 5).map((item) => (
-                            <div className="w-full">
+                            <div className="w-full" key={item.id}>
                                 <BreakingNews
                                     id={item.id}
                                     image={item.image}
@@ -37,29 +37,35 @@ export default function (props) {
                 </div>
             </div>
 
-            <div className="hl-row lg:w-10/12 grid md:grid-cols-2 lg:grid-cols-3 mb-4">
-                <div className="lg:col-span-1 md:col-span-1">
-                    <div className="">
-                        <NewsHeader />
-                    </div>
+            <div className="hl-row lg:w-10/12 grid md:grid-cols-2 lg:grid-cols-4 lg:mt-16">
+                <div className="lg:col-span-3">
+                    <NewsHeader tagline="OLAHRAGA" category='olahraga' className="grid lg:col-span-2">
+                        {(linkRef) => (
+                                <div className="lg:flex lg:flex-row lg:col-span-2">
+                                    <div className="lg:w-2/3">
+                                        <NewsCarousel props={props} />
+                                    </div>
+                                    <div className="lg:w-1/3 lg:col-span-1 md:col-span-1">
+                                        <div className="grid grid-cols-1 md:grid-rows-4 gap-4">
+                                            {props.sport_home.slice(0, 5).map((item) => (
+                                                <div className="w-full" key={item.id}>
+                                                    <NewsCardText
+                                                        id={item.id}
+                                                        title={item.title}
+                                                        category={item.category}
+                                                        date={item.time}
+                                                    />
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                    </NewsHeader>
+                </div>
+
+                <div className="lg:col-span-1 sm:mt-8 md:col-span-1">
                     <NewsCarousel props={props} />
-                </div>
-                <div className="lg:w-full lg:col-span-1 md:col-span-1">
-                    <div className="grid grid-cols-1 md:grid-rows-4 gap-4">
-                        {props.sport_home.slice(0, 5).map((item) => (
-                            <div className="w-full">
-                                <NewsCardText
-                                    id={item.id}
-                                    title={item.title}
-                                    category={item.category}
-                                    date={item.time}
-                                />
-                            </div>
-                        ))}
-                    </div>
-                </div>
-                <div className="lg:col-span-1 md:col-span-1">
-                    {/* <NewsCarousel props={props} /> */}
                 </div>
             </div>
 

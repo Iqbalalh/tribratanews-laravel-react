@@ -10,8 +10,8 @@ import { IoLogoTiktok } from "react-icons/io5";
 
 export default function CustomFooter() {
     return (
-        <Footer className="flex flex-col justify-between min-h-screen">
-            <div className="flex items-end min-h-screen">
+        <Footer className="flex flex-col justify-between">
+            <div className="flex items-end">
                 <img
                     src="/assets/logo footer.png"
                     className="w-full max-w-screen-md lg:max-w-screen-lg max-h-50"
@@ -45,7 +45,7 @@ export default function CustomFooter() {
                     </FooterLink>
                 </FooterLinkGroup>
             </div>
-            <div className="w-full bg-red-900 px-4 py-6 mt-2 mb-1 overflow-x-auto justify-end">
+            <div className="w-full bg-red-900 px-4 py-6 mt-2 overflow-x-auto justify-end">
                 <div className="flex flex-col sm:flex-row justify-between">
                     <FooterCopyright
                         className="text-white text-sm md:visible lg:text-lg mb-4 sm:mb-0"
