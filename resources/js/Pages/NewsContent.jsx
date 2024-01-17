@@ -2,6 +2,7 @@ import { Head, usePage, Link } from "@inertiajs/react";
 import NavBar from "@/Components/NavBar";
 import DateText from "@/Components/DateText";
 import { IoMdTime } from "react-icons/io";
+import CustomFooter from "@/Components/CustomFooter";
 
 export default function NewsContent() {
     const { props } = usePage();
@@ -27,8 +28,8 @@ export default function NewsContent() {
                     <DateText className="items-center" date={props.detail.time} textColor="text-gray-600" textSize="lg:text-md text-sm" />
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 pt-5">
-                    <div className="lg:col-span-3 md:col-span-1 items-center">
-                        <center><img className="img-height" src={`/assets/${imagePath}`} alt="" /></center>
+                    <div className="lg:col-span-3 md:col-span-1 justify-left items-center">
+                        <center><img className="lg:min-w-full max-h-96" src={`/storage/${imagePath}`} alt="Image" /></center>
                         <h2 className="text-left lg:text-lg text-sm italic text-gray-500 w-full">{props.detail.image_caption}</h2>
                         <p className="text-xl mt-5 leading-normal">{props.detail.content}</p>
                     </div>
@@ -36,8 +37,8 @@ export default function NewsContent() {
                 <h3 className="mt-5 text-lg text-gray-600">{props.detail.author}</h3>
             </div>
 
-            <div className="footer lg:w-10/12">
-
+            <div className="footer lg:w-full">
+                <CustomFooter />
             </div>
         </div>
     );

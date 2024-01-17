@@ -36,19 +36,19 @@ export default function NavBar({ props }) {
 
                 <div className="flex justify-between items-center py-1 overflow-x-auto mt-2 mb-1 bg-red-900 px-4 extend-bg whitespace-nowrap">
                     <div className="category flex space-x-5">
-                        <Link className="text-white" href="/category/hukum">
+                        <Link className="text-white" href="/kategori/hukum">
                             Hukum
                         </Link>
-                        <Link className="text-white" href="/category/sosial-budaya">
+                        <Link className="text-white" href="/kategori/sosial-budaya">
                             Sosial Budaya
                         </Link>
-                        <Link className="text-white" href="/category/keamanan">
+                        <Link className="text-white" href="/kategori/keamanan">
                             Keamanan
                         </Link>
-                        <Link className="text-white" href="/category/kesehatan">
+                        <Link className="text-white" href="/kategori/kesehatan">
                             Kesehatan
                         </Link>
-                        <Link className="text-white" href="/category/olahraga">
+                        <Link className="text-white" href="/kategoris/olahraga">
                             Olahraga
                         </Link>
                     </div>

@@ -21,6 +21,11 @@ Route::get('/', [NewsController::class, 'index']);
 
 Route::get('/berita/{id}', [NewsController::class, 'berita']);
 
+Route::get('/kategori/hukum', [NewsController::class, 'kategoriHukum'])->name('kategori.hukum');
+
+Route::get('/kategori/sosial-budaya', [NewsController::class, 'kategoriSosialBudaya'])->name('kategori.sosial-budaya');
+
+
 // Route::get('/admin/dashboard', function () {
 //     return Inertia::render('Dashboard');
 // })->middleware(['auth', 'verified'])->name('dashboard');
@@ -37,6 +42,14 @@ Route::get('/berita/{id}', [NewsController::class, 'berita']);
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::get('/posts', function () {
+    return Inertia::render('Posts');
+})->middleware(['auth', 'verified'])->name('posts');
+
+Route::get('/users', function () {
+    return Inertia::render('Users');
+})->middleware(['auth', 'verified'])->name('users');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

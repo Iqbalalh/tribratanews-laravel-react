@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\NewsCollection;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\News;
@@ -16,6 +17,7 @@ class NewsController extends Controller
                         ->get();
 
         $sport_home = News::where('category', 'Olahraga')
+                        ->where('publish_status', 1)
                         ->latest()
                         ->take(5)
                         ->get();
@@ -39,4 +41,44 @@ class NewsController extends Controller
             'headline' => $headline,
         ]);
     }
+
+
+    public function kategoriHukum()
+    {
+        $kategoriHukum = News::where('category', 'Hukum')
+                        ->latest()
+                        ->where('publish_status', 1)
+                        ->paginate(15);
+
+        $headline = News::where('publish_status', 1)
+                        ->latest()
+                        ->take(5)
+                        ->get();
+
+        return Inertia::render('NewsCategory', [
+            'kategoriCategory' => $kategoriHukum,
+            'kategori' => 'Hukum',
+            'headline' => $headline,
+        ]);
+    }
+
+    public function kategoriSosialBudaya()
+    {
+        $kategoriSosialBudaya = News::where('category', 'Sosial Budaya')
+                        ->latest()
+                        ->where('publish_status', 1)
+                        ->paginate(15);
+
+        $headline = News::where('publish_status', 1)
+                        ->latest()
+                        ->take(5)
+                        ->get();
+
+        return Inertia::render('NewsCategory', [
+            'kategoriCategory' => $kategoriSosialBudaya,
+            'kategori' => 'Sosial Budaya',
+            'headline' => $headline,
+        ]);
+    }
+
 }

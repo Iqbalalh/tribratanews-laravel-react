@@ -16,13 +16,15 @@ class NewsFactory extends Factory
      */
     public function definition(): array
     {
+        $categories = ['Hukum', 'Sosial Budaya', 'Keamanan', 'Kesehatan', 'Olahraga'];
+        $images = ['test1.jpeg', 'test2.jpeg', 'test3.jpeg', 'test4.jpeg', 'test5.jpeg'];
         return [
             'title' => fake()->sentence(6),
-            'image' => 'assets/test.jpg',
-            'image_caption' => fake()->sentence(8),
+            'image' => 'storage/' . fake()->randomElement($images),
+            'image_caption' => fake()->sentence(2),
             'time' => fake()->dateTimeBetween('-1 month', '+1 month'),
             'content' => fake()->paragraphs(10, true),
-            'category' => fake()->text(5),
+            'category' => fake()->randomElement($categories),
             'region' => fake()->text(5),
             'author' => fake()->name,
             'publish_status' => fake()->boolean,
