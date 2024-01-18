@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             NewsSeeder::class,
-            // Add other seeders here
+            UserSeeder::class,
         ]);
     }
 }

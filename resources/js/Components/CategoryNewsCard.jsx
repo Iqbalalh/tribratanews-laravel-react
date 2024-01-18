@@ -1,18 +1,15 @@
 import DateText from "./DateText";
-import NewsHeader from "./NewsHeader";
 import { Link } from "@inertiajs/react";
 
 export default function CategoryNewsCard({ id, image, title, date }) {
     return (
-        <Link href={`/berita/${id}`}>
-            <div className="px-4">
-                <div className="h-48">
-                    <img src={image} alt="Side Image" className="h-full w-full object-cover" />
-                </div>
-                <div className="h-20">
-                    <h2 className="text-lg my-2 leading-none">{title}</h2>
-                    <DateText date={date} textColor="text-gray-600" textSize="text-sm" />
-                </div>
+        <Link className="lg:border border-gray-300 rounded-lg px-4 lg:px-0 overflow-hidden" href={`/berita/${id}`}>
+            <div className="h-48">
+                <img src={image} alt="Side Image" className="h-full w-full object-cover object-center" />
+            </div>
+            <div className="h-20 lg:px-4 px-0">
+                <h2 className="text-lg my-2 leading-none">{title}</h2>
+                <DateText date={date} textColor="text-gray-600" textSize="text-sm" />
             </div>
         </Link>
     );

@@ -12,13 +12,10 @@ class CreateNewsTable extends Migration {
             $table->string('title', 100);
             $table->string('image')->nullable();
             $table->string('image_caption', 100)->nullable();
-            $table->dateTime('time');
             $table->text('content');
             $table->string('category');
-            $table->string('region');
             $table->string('author');
             $table->string('publish_status');
-            $table->string('event');
             $table->timestamps();
         });
     }

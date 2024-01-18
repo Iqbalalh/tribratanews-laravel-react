@@ -138,6 +138,30 @@ export default function (props) {
                 </div>
             </div>
 
+            <div className="hl-row lg:w-10/12 grid sm:grid-cols-1 sm:max-w-screen lg:grid-cols-4 mt-8 lg:mt-16">
+                <div className="lg:col-span-3 sm:col-span-1">
+                    <NewsHeader tagline="KEAMANAN" category='keamanan' className="lg:grid lg:col-span-2">
+                        {(linkRef) => (
+                            <div className="grid sm:grid-cols-1 lg:grid-cols-2 lg:grid-rows-5 gap-4">
+                                {props.security_home.slice(0, 10).map((item) => (
+                                    <div key={item.id} className="sm:col-span-1 gap-4">
+                                        <ContentNewsCard
+                                            id={item.id}
+                                            image={item.image}
+                                            title={item.title}
+                                            date={item.created_at}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </NewsHeader>
+                </div>
+                <div className="lg:col-span-1 sm:mt-8 md:col-span-1">
+                    <SocialMediaContainer />
+                </div>
+            </div>
+
             <div className="footer lg:w-full mt-16 md:mt-20 lg:mt-24">
                 <CustomFooter />
             </div>

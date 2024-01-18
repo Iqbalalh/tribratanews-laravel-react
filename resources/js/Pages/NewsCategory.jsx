@@ -1,6 +1,6 @@
 import { Pagination } from 'flowbite-react';
 import { useState } from 'react';
-import { Head, usePage, Link } from "@inertiajs/react";
+import { Head } from "@inertiajs/react";
 import NavBar from "@/Components/NavBar";
 import CustomFooter from "@/Components/CustomFooter";
 import CategoryNewsCard from '@/Components/CategoryNewsCard';
@@ -23,7 +23,14 @@ export default function NewsCategory({ kategoriCategory, kategori, headline }) {
                 <NavBar props={{ headline: slicedHeadlines }} />
             </div>
 
-            <div className="lg:w-10/12 lg:mt-40 b-4 gap-4 grid lg:grid-cols-3 lg:grid-rows-5 grid-cols-1 flex items-center justify-center">
+            <button
+                className="ml-4 px-4 bg-red-900 font-bold text-white text-md p-2 hover:cursor-default"
+            >
+                {kategori}
+            </button>
+            <hr className="mx-4 px-4 mb-2 border-red-900 border-t-2" />
+
+            <div className="lg:w-10/12 lg:px-4 lg:mt-24 b-4 gap-4 grid lg:grid-cols-3 lg:grid-rows-5 grid-cols-1 flex items-center justify-center">
                 {kategoriCategory.data.map((item) => (
                     <CategoryNewsCard
                     key={item.id}
@@ -37,7 +44,7 @@ export default function NewsCategory({ kategoriCategory, kategori, headline }) {
 
             {kategoriCategory.last_page > 1 && (
                 <div className="flex overflow-x-auto sm:justify-center lg:mt-16">
-                    <Pagination className='sm:max-w-screen'
+                    <Pagination className='sm:p-0'
                         currentPage={currentPage}
                         totalPages={kategoriCategory.last_page}
                         onPageChange={onPageChange}

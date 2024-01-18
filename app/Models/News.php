@@ -13,29 +13,19 @@ class News extends Model
         'title',
         'image',
         'image_caption',
-        'time',
         'content',
         'category',
-        'region',
-        'authors',
+        'author',
         'publish_status',
-        'event',
-    ];
-
-    protected $casts = [
-        'time' => 'datetime',
     ];
 
     protected $attributes = [
         'title' => '',
         'image' => '',
         'image_caption' => '',
-        'time' => null,
         'content' => '',
         'category' => '',
-        'region' => '',
         'author' => '',
         'publish_status' => '',
-        'event' => '',
     ];
 }
