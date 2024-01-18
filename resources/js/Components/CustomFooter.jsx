@@ -10,7 +10,7 @@ import { IoLogoTiktok } from "react-icons/io5";
 
 export default function CustomFooter() {
     return (
-        <Footer className="flex flex-col justify-between">
+        <Footer className="flex flex-col justify-between bg-gray-50">
             <div className="flex items-end">
                 <img
                     src="/assets/logo footer.png"

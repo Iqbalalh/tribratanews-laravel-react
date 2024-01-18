@@ -25,6 +25,12 @@ Route::get('/kategori/hukum', [NewsController::class, 'kategoriHukum'])->name('k
 
 Route::get('/kategori/sosial-budaya', [NewsController::class, 'kategoriSosialBudaya'])->name('kategori.sosial-budaya');
 
+Route::get('/kategori/keamanan', [NewsController::class, 'kategoriKeamanan'])->name('kategori.keamanan');
+
+Route::get('/kategori/kesehatan', [NewsController::class, 'kategoriKesehatan'])->name('kategori.kesehatan');
+
+Route::get('/kategori/olahraga', [NewsController::class, 'kategoriOlahraga'])->name('kategori.olahraga');
+
 
 // Route::get('/admin/dashboard', function () {
 //     return Inertia::render('Dashboard');

@@ -48,7 +48,7 @@ export default function NavBar({ props }) {
                         <Link className="text-white" href="/kategori/kesehatan">
                             Kesehatan
                         </Link>
-                        <Link className="text-white" href="/kategoris/olahraga">
+                        <Link className="text-white" href="/kategori/olahraga">
                             Olahraga
                         </Link>
                     </div>

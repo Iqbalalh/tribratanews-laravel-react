@@ -1,22 +1,19 @@
-import CategoryTag from "./CategoryTag"
-import SideTitle from "./SideTitle"
-import DateText from "./DateText"
-import { Link } from "@inertiajs/react"
+import DateText from "./DateText";
+import NewsHeader from "./NewsHeader";
+import { Link } from "@inertiajs/react";
 
-export default function CategoryNewsCard({ id, image, category, title, date }) {
+export default function CategoryNewsCard({ id, image, title, date }) {
     return (
         <Link href={`/berita/${id}`}>
-            <div className="flex px-4">
-                <div className="w-1/3">
-                    <img src={image} alt="Side Image" className="h-20 w-full object-cover" />
+            <div className="px-4">
+                <div className="h-48">
+                    <img src={image} alt="Side Image" className="h-full w-full object-cover" />
                 </div>
-                <div className="w-2/3 text-left pl-4">
-                    <CategoryTag category={category} />
-                    <SideTitle title={title} />
-                    <DateText date={date} textColor="text-gray-600" textSize="text-xs" />
+                <div className="h-20">
+                    <h2 className="text-lg my-2 leading-none">{title}</h2>
+                    <DateText date={date} textColor="text-gray-600" textSize="text-sm" />
                 </div>
             </div>
         </Link>
-    )
+    );
 }
-

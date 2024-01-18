@@ -11,7 +11,7 @@ export default function NewsCarousel({ props }) {
                             <div className="absolute bottom-0 left-0 right-0 p-4 bg-black bg-opacity-50 text-white">
                                 <Link href={`/berita/${item.id}`}>
                                     <h2 className='lg:text-2xl underline text-md pb-1'>{item.title}</h2>
-                                    <DateText date={item.time} textColor="text-white" textSize="lg:text-md text-xs"/>
+                                    <DateText date={item.created_at} textColor="text-white" textSize="lg:text-md text-xs"/>
                                 </Link>
                             </div>
                         </div>

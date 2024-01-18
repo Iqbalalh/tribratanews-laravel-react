@@ -23,13 +23,12 @@ export default function NewsCategory({ kategoriCategory, kategori, headline }) {
                 <NavBar props={{ headline: slicedHeadlines }} />
             </div>
 
-            <div className="lg:w-10/12 lg:mt-40 lg:px-4 mb-4 gap-4 grid lg:grid-cols-3 lg:grid-rows-5 grid-cols-1 flex items-center justify-center">
+            <div className="lg:w-10/12 lg:mt-40 b-4 gap-4 grid lg:grid-cols-3 lg:grid-rows-5 grid-cols-1 flex items-center justify-center">
                 {kategoriCategory.data.map((item) => (
                     <CategoryNewsCard
                     key={item.id}
                     id={item.id}
                     image={`/storage/${item.image.split('/').pop()}`}
-                    category={item.category}
                     title={item.title}
                     date={item.created_at}
                     />
@@ -47,7 +46,7 @@ export default function NewsCategory({ kategoriCategory, kategori, headline }) {
                 </div>
             )}
 
-            <div className="footer lg:w-full">
+            <div className="footer lg:w-full lg:mt-24">
                 <CustomFooter />
             </div>
         </div>

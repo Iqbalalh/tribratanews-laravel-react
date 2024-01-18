@@ -17,4 +17,8 @@
     padding-right: 9.8vw;
   }
 
+  .img-content {
+    max-height: 100vh;
+  }
+
 }

@@ -22,9 +22,37 @@ class NewsController extends Controller
                         ->take(5)
                         ->get();
 
+        $health_home = News::where('category', 'Kesehatan')
+                        ->where('publish_status', 1)
+                        ->latest()
+                        ->take(5)
+                        ->get();
+
+        $culture_home = News::where('category', 'Sosial Budaya')
+                        ->where('publish_status', 1)
+                        ->latest()
+                        ->take(8)
+                        ->get();
+
+        $security_home = News::where('category', 'Hukum')
+                        ->where('publish_status', 1)
+                        ->latest()
+                        ->take(10)
+                        ->get();
+
+        $law_home = News::where('category', 'Hukum')
+                        ->where('publish_status', 1)
+                        ->latest()
+                        ->take(10)
+                        ->get();
+
         return Inertia::render('News', [
             'headline' => $headline,
             'sport_home' => $sport_home,
+            'law_home' => $law_home,
+            'security_home' => $security_home,
+            'culture_home' => $culture_home,
+            'health_home' => $health_home,
         ]);
     }
 
@@ -77,6 +105,62 @@ class NewsController extends Controller
         return Inertia::render('NewsCategory', [
             'kategoriCategory' => $kategoriSosialBudaya,
             'kategori' => 'Sosial Budaya',
+            'headline' => $headline,
+        ]);
+    }
+
+    public function kategoriKeamanan()
+    {
+        $kategoriKeamanan = News::where('category', 'Keamanan')
+                        ->latest()
+                        ->where('publish_status', 1)
+                        ->paginate(15);
+
+        $headline = News::where('publish_status', 1)
+                        ->latest()
+                        ->take(5)
+                        ->get();
+
+        return Inertia::render('NewsCategory', [
+            'kategoriCategory' => $kategoriKeamanan,
+            'kategori' => 'Keamanan',
+            'headline' => $headline,
+        ]);
+    }
+
+    public function kategoriKesehatan()
+    {
+        $kategoriKesehatan = News::where('category', 'Kesehatan')
+                        ->latest()
+                        ->where('publish_status', 1)
+                        ->paginate(15);
+
+        $headline = News::where('publish_status', 1)
+                        ->latest()
+                        ->take(5)
+                        ->get();
+
+        return Inertia::render('NewsCategory', [
+            'kategoriCategory' => $kategoriKesehatan,
+            'kategori' => 'Kesehatan',
+            'headline' => $headline,
+        ]);
+    }
+
+    public function kategoriOlahraga() {
+        $kategoriOlahraga = News::where('category', 'Olahraga')
+                        ->latest()
+                        ->where('publish_status', 1)
+                        ->paginate(15);
+
+        $headline = News::where('publish_status', 1)
+                        ->latest()
+                        ->take(5)
+                        ->get();
+
+        return Inertia::render('NewsCategory', [
+            'kategoriCategory' => $kategoriOlahraga,
+            'kategori' => 'Olahraga',
             'headline' => $headline,
         ]);
     }

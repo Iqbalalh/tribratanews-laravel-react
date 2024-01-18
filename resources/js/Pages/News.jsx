@@ -5,6 +5,8 @@ import { Head } from "@inertiajs/react";
 import NewsHeader from "@/Components/NewsHeader";
 import NewsCardText from "@/Components/NewsCardText";
 import CustomFooter from "@/Components/CustomFooter";
+import SocialMediaContainer from "@/Components/SocialMediaContainer";
+import ContentNewsCard from "@/Components/ContentNewsCard";
 
 export default function (props) {
     return (
@@ -21,15 +23,15 @@ export default function (props) {
                     <NewsCarousel props={props} />
                 </div>
                 <div className="lg:w-full lg:col-span-1 md:col-span-1">
-                    <div className="grid grid-cols-1 md:grid-rows-4 gap-4">
+                    <div className="grid grid-cols-1 md:grid-rows-4 gap-6">
                         {props.headline.slice(0, 5).map((item) => (
-                            <div className="w-full" key={item.id}>
+                            <div className="sm:col-span-1 px-4 lg:px-0" key={item.id}>
                                 <BreakingNews
                                     id={item.id}
                                     image={item.image}
                                     title={item.title}
                                     category={item.category}
-                                    date={item.time}
+                                    date={item.created_at}
                                 />
                             </div>
                         ))}
@@ -37,39 +39,106 @@ export default function (props) {
                 </div>
             </div>
 
-            <div className="hl-row lg:w-10/12 grid md:grid-cols-2 lg:grid-cols-4 lg:mt-16">
-                <div className="lg:col-span-3">
-                    <NewsHeader tagline="OLAHRAGA" category='olahraga' className="grid lg:col-span-2">
+            <div className="hl-row lg:w-10/12 grid sm:grid-cols-2 sm:max-w-full lg:grid-cols-4 lg:mt-16 mt-8">
+                <div className="lg:col-span-3 sm:col-span-1">
+                    <NewsHeader tagline="OLAHRAGA" category='olahraga' className="lg:grid lg:grid-cols-2 grid-cols-1">
                         {(linkRef) => (
-                                <div className="lg:flex lg:flex-row lg:col-span-2">
-                                    <div className="lg:w-2/3">
-                                        <NewsCarousel props={props} />
-                                    </div>
-                                    <div className="lg:w-1/3 lg:col-span-1 md:col-span-1">
-                                        <div className="grid grid-cols-1 md:grid-rows-4 gap-4">
-                                            {props.sport_home.slice(0, 5).map((item) => (
-                                                <div className="w-full" key={item.id}>
-                                                    <NewsCardText
-                                                        id={item.id}
-                                                        title={item.title}
-                                                        category={item.category}
-                                                        date={item.time}
-                                                    />
-                                                </div>
-                                            ))}
-                                        </div>
+                            <div className="lg:flex lg:flex-row block">
+                                <div className="lg:w-2/3">
+                                    <NewsCarousel props={props} />
+                                </div>
+                                <div className="lg:w-1/3">
+                                    <div className="grid grid-cols-1 gap-8 lg:gap-12">
+                                        {props.sport_home.slice(0, 5).map((item) => (
+                                            <div className="lg:col-span-1 px-4 lg:px-0" key={item.id}>
+                                                <NewsCardText
+                                                    id={item.id}
+                                                    title={item.title}
+                                                    date={item.created_at}
+                                                />
+                                            </div>
+                                        ))}
                                     </div>
                                 </div>
-                            )}
+                            </div>
+                        )}
                     </NewsHeader>
                 </div>
-
                 <div className="lg:col-span-1 sm:mt-8 md:col-span-1">
-                    <NewsCarousel props={props} />
+                    <SocialMediaContainer />
                 </div>
             </div>
 
-            <div className="footer lg:w-full">
+            <div className="hl-row lg:w-10/12 grid sm:grid-cols-1 sm:max-w-screen lg:grid-cols-4 mt-8 lg:mt-16">
+                <div className="lg:col-span-3 sm:col-span-1">
+                    <NewsHeader tagline="HUKUM" category='hukum' className="lg:grid lg:col-span-2">
+                        {(linkRef) => (
+                            <div className="grid sm:grid-cols-1 lg:grid-cols-2 lg:grid-rows-5 gap-4">
+                                {props.law_home.slice(0, 10).map((item) => (
+                                    <div key={item.id} className="sm:col-span-1 gap-4">
+                                        <ContentNewsCard
+                                            id={item.id}
+                                            image={item.image}
+                                            title={item.title}
+                                            date={item.created_at}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </NewsHeader>
+                </div>
+                <div className="lg:col-span-1 sm:mt-8 md:col-span-1">
+                    <SocialMediaContainer />
+                </div>
+            </div>
+
+            <div className="hl-row lg:w-10/12 grid sm:grid-cols-2 sm:max-w-full lg:grid-cols-4 lg:mt-16 mt-8">
+                <div className="lg:col-span-2 sm:col-span-1">
+                    <NewsHeader tagline="SOSIAL BUDAYA" category='sosial-budaya' className="lg:grid lg:col-span-2">
+                        {(linkRef) => (
+                            <div className="grid sm:grid-cols-1 lg:grid-cols-2 lg:grid-rows-4 gap-4">
+                                {props.culture_home.slice(0, 8).map((item) => (
+                                    <div key={item.id} className="sm:col-span-1 gap-4">
+                                        <ContentNewsCard
+                                            id={item.id}
+                                            image={item.image}
+                                            title={item.title}
+                                            date={item.created_at}
+                                        />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </NewsHeader>
+                </div>
+                <div className="lg:col-span-2 sm:col-span-1 lg:ml-5">
+                    <NewsHeader tagline="KESEHATAN" category='kesehatan' className="lg:grid lg:grid-cols-2 grid-cols-1">
+                        {(linkRef) => (
+                            <div className="lg:flex lg:flex-row block">
+                                <div className="lg:w-2/3">
+                                    <NewsCarousel props={props} />
+                                </div>
+                                <div className="lg:w-1/3">
+                                    <div className="grid grid-cols-1 gap-8">
+                                        {props.health_home.slice(0, 5).map((item) => (
+                                            <div className="lg:col-span-1 px-4 lg:px-0" key={item.id}>
+                                                <NewsCardText
+                                                    id={item.id}
+                                                    title={item.title}
+                                                    date={item.created_at}
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                    </NewsHeader>
+                </div>
+            </div>
+
+            <div className="footer lg:w-full mt-16 md:mt-20 lg:mt-24">
                 <CustomFooter />
             </div>
         </div>

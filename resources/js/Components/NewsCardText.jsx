@@ -1,14 +1,12 @@
-import CategoryTag from "./CategoryTag"
 import SideTitle from "./SideTitle"
 import DateText from "./DateText"
 import { Link } from "@inertiajs/react"
 
-export default function BreakingNews({ id, category, title, date }) {
+export default function BreakingNews({ id, title, date }) {
     return (
-        <div className="flex px-4">
+        <div className="flex">
             <Link href={`/berita/${id}`}>
                 <div className="w-full text-left">
-                    <CategoryTag category={category} />
                     <SideTitle title={title} />
                     <DateText date={date} textColor="text-gray-600" textSize="text-xs" />
                 </div>
