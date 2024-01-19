@@ -17,8 +17,12 @@
     padding-right: 9.8vw;
   }
 
+  .iframe-height {
+    height: 65vh;
+  }
+
   .img-content {
-    max-height: 100vh;
+    height: 60vh;
   }
 
 }

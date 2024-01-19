@@ -1,8 +1,8 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import CustomSideBar from '@/Components/CustomSideBar';
+import CustomSideBar from '@/Components/AdminSideBar';
 
-export default function Users({ auth }) {
+export default function AdminUsers({ auth }) {
     return (
         <AuthenticatedLayout
             user={auth.user}

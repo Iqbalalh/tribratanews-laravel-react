@@ -1,9 +1,8 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import CustomSideBar from '@/Components/CustomSideBar';
-import { Button } from 'flowbite-react';
+import CustomSideBar from '@/Components/AdminSideBar';
 
-export default function Posts({ auth }) {
+export default function AdminPosts({ auth }) {
     return (
         <AuthenticatedLayout
             user={auth.user}
@@ -13,7 +12,6 @@ export default function Posts({ auth }) {
             <div className="container flex">
                 <CustomSideBar />
                     <div className="crud m-10">
-                        <Button className='bg-red-900 hover:bg-red-800'>Create</Button>
                     </div>
             </div>
         </AuthenticatedLayout>

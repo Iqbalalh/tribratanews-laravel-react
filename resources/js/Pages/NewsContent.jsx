@@ -29,7 +29,7 @@ export default function NewsContent() {
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 pt-5">
                     <div className="lg:col-span-3 md:col-span-1 justify-left items-center">
-                        <center><img className="min-w-full sm:max-h-48 md:max-h-56 lg:max-h-96 img-content" src={`/storage/${imagePath}`} alt="Image" /></center>
+                        <center><img className="min-w-full sm:max-h-48 md:max-h-56 lg:max-h-full img-content" src={`/storage/${imagePath}`} alt="Image" /></center>
                         <h2 className="text-left lg:text-lg text-sm italic text-gray-500 w-full">{props.detail.image_caption}</h2>
                         <p className="text-xl mt-5 leading-normal">{props.detail.content}</p>
                     </div>

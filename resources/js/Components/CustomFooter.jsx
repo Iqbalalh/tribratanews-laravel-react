@@ -17,28 +17,28 @@ export default function CustomFooter() {
                     className="w-full max-w-screen-md lg:max-w-screen-lg max-h-50"
                 />
             </div>
-            <div className="px-4 mt-4 space-x-3 sm:flex sm:items-center sm:justify-end">
+            <div className="px-4 mt-4 space-x-3 sm:flex sm:items-center sm:justify-center">
                 <FooterLinkGroup className="list-none mb-5 justify-center">
                     <FooterLink
-                        className="text-lg font-bold text-blue-900 md:visible"
+                        className="text-lg font-bold text-blue-900 md:visible mr-0"
                         href="#"
                     >
                         Polda Lampung
                     </FooterLink>
                     <FooterLink
-                        className="text-lg font-bold text-blue-900 md:visible"
+                        className="text-lg font-bold text-blue-900 md:visible mr-0"
                         href="#"
                     >
                         Polres Lampung Utara
                     </FooterLink>
                     <FooterLink
-                        className="text-lg font-bold text-blue-900 md:visible"
+                        className="text-lg font-bold text-blue-900 md:visible mr-0"
                         href="#"
                     >
                         Polres Lampung Tengah
                     </FooterLink>
                     <FooterLink
-                        className="text-lg font-bold text-blue-900 md:visible"
+                        className="text-lg font-bold text-blue-900 md:visible mr-0"
                         href="#"
                     >
                         Polres Lampung Barat

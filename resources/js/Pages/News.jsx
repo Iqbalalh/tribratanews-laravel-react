@@ -23,7 +23,7 @@ export default function (props) {
                     <NewsCarousel props={props} />
                 </div>
                 <div className="lg:w-full lg:col-span-1 md:col-span-1">
-                    <div className="grid grid-cols-1 md:grid-rows-4 gap-6">
+                    <div className="grid grid-cols-1 md:grid-rows-4 gap-4">
                         {props.headline.slice(0, 5).map((item) => (
                             <div className="sm:col-span-1 px-4 lg:px-0" key={item.id}>
                                 <BreakingNews
@@ -41,7 +41,7 @@ export default function (props) {
 
             <div className="hl-row lg:w-10/12 grid sm:grid-cols-2 sm:max-w-full lg:grid-cols-4 lg:mt-16 mt-8">
                 <div className="lg:col-span-3 sm:col-span-1">
-                    <NewsHeader tagline="OLAHRAGA" category='olahraga' className="lg:grid lg:grid-cols-2 grid-cols-1">
+                    <NewsHeader tagline="OLAHRAGA" category='olahraga' className="lg:grid lg:grid-cols-2 grid-cols-1" color="black">
                         {(linkRef) => (
                             <div className="lg:flex lg:flex-row block">
                                 <div className="lg:w-2/3">
@@ -64,14 +64,14 @@ export default function (props) {
                         )}
                     </NewsHeader>
                 </div>
-                <div className="lg:col-span-1 sm:mt-8 md:col-span-1">
-                    <SocialMediaContainer />
+                <div className="lg:col-span-1 sm:mt-8 lg:mt-0 md:mt-8 md:col-span-1 ml-5">
+                    <SocialMediaContainer title="Instagram" src="https://widget.taggbox.com/148528" textColor="#DD2A7B"/>
                 </div>
             </div>
 
             <div className="hl-row lg:w-10/12 grid sm:grid-cols-1 sm:max-w-screen lg:grid-cols-4 mt-8 lg:mt-16">
                 <div className="lg:col-span-3 sm:col-span-1">
-                    <NewsHeader tagline="HUKUM" category='hukum' className="lg:grid lg:col-span-2">
+                    <NewsHeader tagline="HUKUM" category='hukum' className="lg:grid lg:col-span-2" color="yellow-400">
                         {(linkRef) => (
                             <div className="grid sm:grid-cols-1 lg:grid-cols-2 lg:grid-rows-5 gap-4">
                                 {props.law_home.slice(0, 10).map((item) => (
@@ -88,14 +88,14 @@ export default function (props) {
                         )}
                     </NewsHeader>
                 </div>
-                <div className="lg:col-span-1 sm:mt-8 md:col-span-1">
-                    <SocialMediaContainer />
+                <div className="lg:col-span-1 sm:mt-8 lg:mt-0 md:mt-8 md:col-span-1 ml-5">
+                    <SocialMediaContainer title="Youtube" src="https://widget.taggbox.com/148533" textColor="#FF0000"/>
                 </div>
             </div>
 
             <div className="hl-row lg:w-10/12 grid sm:grid-cols-2 sm:max-w-full lg:grid-cols-4 lg:mt-16 mt-8">
                 <div className="lg:col-span-2 sm:col-span-1">
-                    <NewsHeader tagline="SOSIAL BUDAYA" category='sosial-budaya' className="lg:grid lg:col-span-2">
+                    <NewsHeader tagline="SOSIAL BUDAYA" category='sosial-budaya' className="lg:grid lg:col-span-2" color="red-900">
                         {(linkRef) => (
                             <div className="grid sm:grid-cols-1 lg:grid-cols-2 lg:grid-rows-4 gap-4">
                                 {props.culture_home.slice(0, 8).map((item) => (
@@ -112,8 +112,8 @@ export default function (props) {
                         )}
                     </NewsHeader>
                 </div>
-                <div className="lg:col-span-2 sm:col-span-1 lg:ml-5">
-                    <NewsHeader tagline="KESEHATAN" category='kesehatan' className="lg:grid lg:grid-cols-2 grid-cols-1">
+                <div className="lg:col-span-2 sm:col-span-1 lg:ml-5 mt-12 lg:mt-0">
+                    <NewsHeader tagline="KESEHATAN" category='kesehatan' className="lg:grid lg:grid-cols-2 grid-cols-1" color="green-600">
                         {(linkRef) => (
                             <div className="lg:flex lg:flex-row block">
                                 <div className="lg:w-2/3">
@@ -140,7 +140,7 @@ export default function (props) {
 
             <div className="hl-row lg:w-10/12 grid sm:grid-cols-1 sm:max-w-screen lg:grid-cols-4 mt-8 lg:mt-16">
                 <div className="lg:col-span-3 sm:col-span-1">
-                    <NewsHeader tagline="KEAMANAN" category='keamanan' className="lg:grid lg:col-span-2">
+                    <NewsHeader tagline="KEAMANAN" category='keamanan' className="lg:grid lg:col-span-2" color="black">
                         {(linkRef) => (
                             <div className="grid sm:grid-cols-1 lg:grid-cols-2 lg:grid-rows-5 gap-4">
                                 {props.security_home.slice(0, 10).map((item) => (
@@ -157,8 +157,8 @@ export default function (props) {
                         )}
                     </NewsHeader>
                 </div>
-                <div className="lg:col-span-1 sm:mt-8 md:col-span-1">
-                    <SocialMediaContainer />
+                <div className="lg:col-span-1 sm:mt-8 lg:mt-0 md:mt-8 md:col-span-1 ml-5">
+                    <SocialMediaContainer title="Twitter" src="https://widget.taggbox.com/148558" textColor="#1DA1F2"/>
                 </div>
             </div>
 

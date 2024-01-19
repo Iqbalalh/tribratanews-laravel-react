@@ -2,9 +2,9 @@
 
 use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ProfileController;
-use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
+use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,31 +31,20 @@ Route::get('/kategori/kesehatan', [NewsController::class, 'kategoriKesehatan'])-
 
 Route::get('/kategori/olahraga', [NewsController::class, 'kategoriOlahraga'])->name('kategori.olahraga');
 
+Route::group(['middleware' => 'auth'], function() {
+    Route::inertia('/dashboard', 'Dashboard')->name('dashboard');
 
-// Route::get('/admin/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get("/redirectAuthenticatedUsers", [RedirectAuthenticatedUsersController::class, "home"]);
 
-// Route::get('/welcome', function () {
-//     return Inertia::render('Welcome', [
-//         'canLogin' => Route::has('login'),
-//         'canRegister' => Route::has('register'),
-//         'laravelVersion' => Application::VERSION,
-//         'phpVersion' => PHP_VERSION,
-//     ]);
-// });
-
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
-
-Route::get('/posts', function () {
-    return Inertia::render('Posts');
-})->middleware(['auth', 'verified'])->name('posts');
-
-Route::get('/users', function () {
-    return Inertia::render('Users');
-})->middleware(['auth', 'verified'])->name('users');
+    Route::group(['middleware' => 'checkRole:admin'], function() {
+        Route::inertia('/admin-dashboard', 'AdminDashboard')->name('admin-dashboard');
+        Route::inertia('/admin-posts', 'AdminPosts')->name('admin-posts');
+        Route::inertia('/admin-users', 'AdminUsers')->name('admin-users');
+    });
+    Route::group(['middleware' => 'checkRole:editor'], function() {
+        Route::inertia('/editor-dashboard', 'EditorDashboard')->name('editor-dashboard');
+    });
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

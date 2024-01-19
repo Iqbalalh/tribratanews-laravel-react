@@ -1,21 +1,11 @@
-export default function SocialMediaContainer() {
+export default function SocialMediaContainer({ title, src, textColor }) {
     return (
         <div>
+            <h1 className={`font-bold lg:mb-5 mb-3`} style={{ color: textColor }}>{title}</h1>
             <iframe
-                title="Taggbox Widget 1"
-                src="https://widget.taggbox.com/148528"
-                style={{ width: "100%", height: "200px", border: "none" }}
-            ></iframe>
-
-            <div
-                style={{
-                    marginTop: "20px",
-                }}
-            ></div>
-            <iframe
-                title="Taggbox Widget 2"
-                src="https://widget.taggbox.com/148533"
-                style={{ width: "100%", height: "200px", border: "none" }}
+                title={title}
+                src={src}
+                className="iframe-height w-full h-full"
             ></iframe>
         </div>
     );
