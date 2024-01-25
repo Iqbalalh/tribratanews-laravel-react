@@ -41,7 +41,7 @@ export default function (props) {
 
             <div className="hl-row lg:w-10/12 grid sm:grid-cols-2 sm:max-w-full lg:grid-cols-4 lg:mt-16 mt-8">
                 <div className="lg:col-span-3 sm:col-span-1">
-                    <NewsHeader tagline="OLAHRAGA" category='olahraga' className="lg:grid lg:grid-cols-2 grid-cols-1" color="black">
+                    <NewsHeader tagline="OLAHRAGA" category='olahraga' className="lg:grid lg:grid-cols-2 grid-cols-1" color="red-900">
                         {(linkRef) => (
                             <div className="lg:flex lg:flex-row block">
                                 <div className="lg:w-2/3">
@@ -65,7 +65,7 @@ export default function (props) {
                     </NewsHeader>
                 </div>
                 <div className="lg:col-span-1 sm:mt-8 lg:mt-0 md:mt-8 md:col-span-1 ml-5">
-                    <SocialMediaContainer title="Instagram" src="https://widget.taggbox.com/148528" textColor="#DD2A7B"/>
+                    <SocialMediaContainer title="Instagram @polresta_bandarlampung" src="https://widget.taggbox.com/148528" textColor="#DD2A7B"/>
                 </div>
             </div>
 
@@ -113,7 +113,7 @@ export default function (props) {
                     </NewsHeader>
                 </div>
                 <div className="lg:col-span-2 sm:col-span-1 lg:ml-5 mt-12 lg:mt-0">
-                    <NewsHeader tagline="KESEHATAN" category='kesehatan' className="lg:grid lg:grid-cols-2 grid-cols-1" color="green-600">
+                    <NewsHeader tagline="KESEHATAN" category='kesehatan' className="lg:grid lg:grid-cols-2 grid-cols-1" color="green-700">
                         {(linkRef) => (
                             <div className="lg:flex lg:flex-row block">
                                 <div className="lg:w-2/3">
@@ -158,7 +158,7 @@ export default function (props) {
                     </NewsHeader>
                 </div>
                 <div className="lg:col-span-1 sm:mt-8 lg:mt-0 md:mt-8 md:col-span-1 ml-5">
-                    <SocialMediaContainer title="Twitter" src="https://widget.taggbox.com/148558" textColor="#1DA1F2"/>
+                    <SocialMediaContainer title="Twitter @PolrestaL" src="https://widget.taggbox.com/148558" textColor="#1DA1F2"/>
                 </div>
             </div>
 

@@ -40,9 +40,11 @@ Route::group(['middleware' => 'auth'], function() {
         Route::inertia('/admin-dashboard', 'AdminDashboard')->name('admin-dashboard');
         Route::inertia('/admin-posts', 'AdminPosts')->name('admin-posts');
         Route::inertia('/admin-users', 'AdminUsers')->name('admin-users');
+        Route::post('/news', [NewsController::class, 'store']);
     });
     Route::group(['middleware' => 'checkRole:editor'], function() {
         Route::inertia('/editor-dashboard', 'EditorDashboard')->name('editor-dashboard');
+        Route::inertia('/editor-posts', 'EditorPosts')->name('editor-posts');
     });
 });
 

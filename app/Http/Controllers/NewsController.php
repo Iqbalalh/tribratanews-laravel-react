@@ -6,6 +6,7 @@ use App\Http\Resources\NewsCollection;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\News;
+use Illuminate\Support\Facades\Storage;
 
 class NewsController extends Controller
 {
@@ -164,5 +165,33 @@ class NewsController extends Controller
             'headline' => $headline,
         ]);
     }
+
+    public function store(Request $request)
+{
+    $request->validate([
+        'title' => 'required|string',
+        'image' => 'required|image|mimes:jpeg,png,jpg',
+        'imageCaption' => 'required|string',
+        'content' => 'required|string',
+        'category' => 'required|string',
+        'publishStatus' => 'required|integer',
+    ]);
+
+    $imageName = uniqid().'.'.$request->image->extension();
+    $request->image->storeAs('public', $imageName, 'local');
+
+    News::create([
+        'title' => $request->title,
+        'image' => 'storage/' . $imageName,
+        'image_caption' => $request->imageCaption,
+        'content' => $request->content,
+        'category' => $request->category,
+        'publish_status' => $request->publishStatus,
+        'author' => auth()->user()->name,
+    ]);
+
+    return redirect()->route('admin-dashboard')->with('success', 'News created successfully!');
+}
+
 
 }

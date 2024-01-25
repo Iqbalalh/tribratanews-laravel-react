@@ -3,6 +3,8 @@ import NavBar from "@/Components/NavBar";
 import DateText from "@/Components/DateText";
 import { IoMdTime } from "react-icons/io";
 import CustomFooter from "@/Components/CustomFooter";
+import SocialMediaContainer from "@/Components/SocialMediaContainer";
+import HTMLReactParser from "html-react-parser";
 
 export default function NewsContent() {
     const { props } = usePage();
@@ -28,10 +30,13 @@ export default function NewsContent() {
                     <DateText className="items-center" date={props.detail.created_at} textColor="text-gray-600" textSize="lg:text-md text-sm" />
                 </div>
                 <div className="grid md:grid-cols-2 lg:grid-cols-4 pt-5">
-                    <div className="lg:col-span-3 md:col-span-1 justify-left items-center">
+                    <div className="lg:col-span-3 md:col-span-1 justify-left items-center lg:mr-5">
                         <center><img className="min-w-full sm:max-h-48 md:max-h-56 lg:max-h-full img-content" src={`/storage/${imagePath}`} alt="Image" /></center>
                         <h2 className="text-left lg:text-lg text-sm italic text-gray-500 w-full">{props.detail.image_caption}</h2>
-                        <p className="text-xl mt-5 leading-normal">{props.detail.content}</p>
+                        <div className="lg:text-xl text-lg mt-10">{HTMLReactParser(props.detail.content)}</div>
+                    </div>
+                    <div className="lg:col-span-1">
+                        <SocialMediaContainer title="Twitter @PolrestaL" src="https://widget.taggbox.com/148558" textColor="#1DA1F2" />
                     </div>
                 </div>
                 <h3 className="mt-5 text-lg text-gray-600">Author: {props.detail.author}</h3>

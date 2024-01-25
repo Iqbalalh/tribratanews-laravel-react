@@ -18,13 +18,13 @@ export default function NavBar({ props }) {
                             placeholder="search"
                         />
                         <div className="hidden md:flex items-center space-x-2">
-                            <Link href="">
+                            <Link href="https://youtube.com/@POLDALAMPUNG?si=MwqbMS8bQYIbgy-w">
                                 <img src="/assets/twitter.png" alt="" />
                             </Link>
-                            <Link href="">
+                            <Link href="https://www.instagram.com/humas_poldalampung?igsh=NnBtc21udXh0dDNz">
                                 <img src="/assets/instagram.png" alt="" />
                             </Link>
-                            <Link href="">
+                            <Link href="https://www.facebook.com/humaspoldalampung?mibextid=ZbWKwL">
                                 <img src="/assets/facebook.png" alt="" />
                             </Link>
                             <Link href="">
