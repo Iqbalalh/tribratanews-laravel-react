@@ -3,7 +3,7 @@ import { Link } from "@inertiajs/react";
 
 export default function CategoryNewsCard({ id, image, title, date }) {
     return (
-        <Link className="lg:border border-gray-300 rounded-lg px-4 lg:px-0 overflow-hidden" href={`/berita/${id}`}>
+        <Link className="lg:border border-gray-300 rounded-lg px-4 lg:px-0 overflow-hidden shadow-lg" href={`/berita/${id}`}>
             <div className="h-48">
                 <img src={image} alt="Side Image" className="h-full w-full object-cover object-center" />
             </div>

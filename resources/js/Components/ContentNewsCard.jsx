@@ -10,7 +10,7 @@ export default function ContentNewsCard({ id, image, title, date }) {
                     <img src={image} alt="Side Image" className="h-20 w-full object-cover" />
                 </div>
                 <div className="w-2/3 text-left pl-4">
-                    <SideTitle title={title} />
+                    <SideTitle title={title} className="font-extrabold"/>
                     <DateText date={date} textColor="text-gray-600" textSize="text-xs" />
                 </div>
             </div>

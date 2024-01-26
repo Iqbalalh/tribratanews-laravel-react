@@ -19,7 +19,7 @@ export default function NavBar({ props }) {
                         />
                         <div className="hidden md:flex items-center space-x-2">
                             <Link href="https://youtube.com/@POLDALAMPUNG?si=MwqbMS8bQYIbgy-w">
-                                <img src="/assets/twitter.png" alt="" />
+                                <img src="/assets/x.png" height={25} width={25} alt="" />
                             </Link>
                             <Link href="https://www.instagram.com/humas_poldalampung?igsh=NnBtc21udXh0dDNz">
                                 <img src="/assets/instagram.png" alt="" />

@@ -1,11 +1,6 @@
-import {
-    Footer,
-    FooterCopyright,
-    FooterIcon,
-    FooterLink,
-    FooterLinkGroup,
-} from "flowbite-react";
-import { IoLogoInstagram, IoLogoFacebook, IoLogoYoutube } from "react-icons/io";
+import { Footer, FooterCopyright, FooterIcon, FooterLink, FooterLinkGroup } from "flowbite-react";
+import { AiFillInstagram } from "react-icons/ai";
+import { IoLogoFacebook, IoLogoYoutube } from "react-icons/io";
 import { IoLogoTiktok } from "react-icons/io5";
 
 export default function CustomFooter() {
@@ -89,7 +84,7 @@ export default function CustomFooter() {
                         <FooterIcon
                             className="text-white"
                             href="https://www.instagram.com/humas_poldalampung?igsh=NnBtc21udXh0dDNz"
-                            icon={IoLogoInstagram}
+                            icon={AiFillInstagram}
                         />
                         <FooterIcon
                             className="text-white"

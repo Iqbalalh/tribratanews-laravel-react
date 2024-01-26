@@ -64,7 +64,7 @@ export default function (props) {
                         )}
                     </NewsHeader>
                 </div>
-                <div className="lg:col-span-1 sm:mt-8 lg:mt-0 md:mt-8 md:col-span-1 ml-5">
+                <div className="lg:col-span-1 sm:mt-8 lg:mt-0 md:mt-8 md:col-span-1 ml-5 hidden md:block lg:block">
                     <SocialMediaContainer title="Instagram @polresta_bandarlampung" src="https://widget.taggbox.com/148528" textColor="#DD2A7B"/>
                 </div>
             </div>
@@ -88,7 +88,7 @@ export default function (props) {
                         )}
                     </NewsHeader>
                 </div>
-                <div className="lg:col-span-1 sm:mt-8 lg:mt-0 md:mt-8 md:col-span-1 ml-5">
+                <div className="lg:col-span-1 sm:mt-8 lg:mt-0 md:mt-8 md:col-span-1 ml-5 hidden md:block lg:block">
                     <SocialMediaContainer title="Youtube" src="https://widget.taggbox.com/148533" textColor="#FF0000"/>
                 </div>
             </div>
@@ -157,7 +157,7 @@ export default function (props) {
                         )}
                     </NewsHeader>
                 </div>
-                <div className="lg:col-span-1 sm:mt-8 lg:mt-0 md:mt-8 md:col-span-1 ml-5">
+                <div className="lg:col-span-1 sm:mt-8 lg:mt-0 md:mt-8 md:col-span-1 ml-5 hidden md:block lg:block">
                     <SocialMediaContainer title="Twitter @PolrestaL" src="https://widget.taggbox.com/148558" textColor="#1DA1F2"/>
                 </div>
             </div>
