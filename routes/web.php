@@ -39,6 +39,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:admin'], function() {
         Route::inertia('/admin-dashboard', 'AdminDashboard')->name('admin-dashboard');
         Route::inertia('/admin-posts', 'AdminPosts')->name('admin-posts');
+        Route::get('/admin-posts', [NewsController::class, 'view'])->name('admin-posts');
         Route::inertia('/admin-users', 'AdminUsers')->name('admin-users');
         Route::post('/news', [NewsController::class, 'store']);
     });

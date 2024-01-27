@@ -5,7 +5,7 @@ import { HiChartPie, HiNewspaper, HiUser } from 'react-icons/hi';
 
 export default function AdminSideBar() {
   return (
-    <Sidebar className='h-screen' label="Default sidebar example">
+    <Sidebar className='h-screen max-w-fit' label="Default sidebar example">
       <Sidebar.Items>
         <Sidebar.ItemGroup>
           <Sidebar.Item href="/admin-dashboard" icon={HiChartPie}>

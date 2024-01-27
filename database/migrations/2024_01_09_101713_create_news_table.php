@@ -15,7 +15,7 @@ class CreateNewsTable extends Migration {
             $table->text('content');
             $table->string('category');
             $table->string('author');
-            $table->string('publish_status');
+            $table->boolean('publish_status');
             $table->timestamps();
         });
     }

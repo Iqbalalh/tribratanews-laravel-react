@@ -11,28 +11,32 @@ export default function NewsCreateModal({showModal, setShowModal}) {
     const [imageCaption, setImageCaption] = useState('');
     const [content, setContent] = useState('');
     const [category, setCategory] = useState('');
-    const [publishStatus, setPublishStatus] = useState(0);
+    const [publishStatus, setPublishStatus] = useState(false);
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         setImage(file);
       };
 
-      const handleCreate = () => {
+    const handleCreate = () => {
         const formData = new FormData();
         formData.append('title', title);
         formData.append('image', image);
         formData.append('imageCaption', imageCaption);
         formData.append('content', content);
         formData.append('category', category);
-        formData.append('publishStatus', publishStatus);
+        formData.append('publishStatus', String(publishStatus));
 
         Inertia.post('news', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-          },
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        }).then((response) => {
+            console.log(response);
+        }).catch((error) => {
+            console.error(error);
         });
-      };
+    };
 
 
     return (
@@ -134,9 +138,9 @@ export default function NewsCreateModal({showModal, setShowModal}) {
                   <div className="mb-2 block">
                     <Label htmlFor="publishStatus" value="Status" />
                   </div>
-                    <Dropdown color="dark" className="border-black" id="publishStatus" label={publishStatus ? publishStatus : "Status Publikasi"}>
-                        <Dropdown.Item onClick={() => setPublishStatus(0)}>DRAFT</Dropdown.Item>
-                        <Dropdown.Item onClick={() => setPublishStatus(1)}>PUBLISHED</Dropdown.Item>
+                    <Dropdown color="dark" className="border-black" id="publishStatus" label={publishStatus ? 'PUBLISHED' : 'DRAFT'}>
+                        <Dropdown.Item onClick={() => setPublishStatus(false)}>DRAFT</Dropdown.Item>
+                        <Dropdown.Item onClick={() => setPublishStatus(true)}>PUBLISHED</Dropdown.Item>
                     </Dropdown>
                 </div>
 
