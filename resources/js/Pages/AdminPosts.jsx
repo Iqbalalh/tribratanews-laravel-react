@@ -18,21 +18,6 @@ export default function AdminPosts({ auth, adminView }) {
         window.location.assign(`${adminView.path}?page=${page}`);
     };
 
-    const handlePublish = () => {
-        const formData = new FormData();
-        formData.append('publishStatus', String(publishStatus));
-
-        Inertia.post('news', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        }).then((response) => {
-            console.log(response);
-        }).catch((error) => {
-            console.error(error);
-        });
-    }
-
     return (
         <div className="max-h-screen overflow-y-hidden">
         <AuthenticatedLayout
@@ -70,7 +55,7 @@ export default function AdminPosts({ auth, adminView }) {
                                                     {post.publish_status === true ? "PUBLISH" : "DRAFT"}
                                                     <ToggleSwitch
                                                         checked={post.publish_status}
-                                                        onChange={handlePublish()}
+                                                        // onChange={handlePublish()}
                                                     />
                                                 </div>
                                             </Table.Cell>

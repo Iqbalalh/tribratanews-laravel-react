@@ -205,7 +205,7 @@ class NewsController extends Controller
     {
         $adminView = News::where('publish_status', true)
                         ->latest()
-                        ->paginate(8);
+                        ->paginate(15);
 
         return Inertia::render('AdminPosts', [
             'adminView' => $adminView,

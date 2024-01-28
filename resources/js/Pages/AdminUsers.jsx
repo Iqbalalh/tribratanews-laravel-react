@@ -12,7 +12,6 @@ export default function AdminUsers({ auth }) {
             <div className="container flex">
                 <CustomSideBar />
                     <div className="crud m-10">
-                        <h1>Tai</h1>
                     </div>
             </div>
 
