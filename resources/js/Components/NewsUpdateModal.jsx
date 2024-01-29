@@ -5,29 +5,33 @@ import PrimaryButton from "./PrimaryButton";
 import { useState } from "react";
 import { Inertia } from "@inertiajs/inertia";
 
-export default function NewsCreateModal({showModal, setShowModal}) {
-    const [title, setTitle] = useState('');
-    const [image, setImage] = useState('storage/test1.jpeg');
-    const [imageCaption, setImageCaption] = useState('');
-    const [content, setContent] = useState('');
-    const [category, setCategory] = useState('');
-    const [publishStatus, setPublishStatus] = useState(false);
+export default function NewsUpdateModal({showModal, setShowModal, payload}) {
+    const [title, setTitle] = useState(payload.title);
+    const [image, setImage] = useState(payload.image);
+    const [imageCaption, setImageCaption] = useState(payload.image_caption);
+    const [content, setContent] = useState(payload.content);
+    const [category, setCategory] = useState(payload.category);
+    const [publishStatus, setPublishStatus] = useState(payload.publish_status);
 
     const handleFileChange = (event) => {
         const file = event.target.files[0];
         setImage(file);
       };
 
-    const handleCreate = () => {
+    const handleUpdate = () => {
         const formData = new FormData();
         formData.append('title', title);
-        formData.append('image', image);
+
+        if (image) {
+            formData.append('image', image);
+        }
+
         formData.append('imageCaption', imageCaption);
         formData.append('content', content);
         formData.append('category', category);
         formData.append('publishStatus', String(publishStatus));
 
-        Inertia.post('/api/create-news', formData, {
+        Inertia.post(`/api/update-news/${payload.id}`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data',
             },
@@ -41,7 +45,11 @@ export default function NewsCreateModal({showModal, setShowModal}) {
 
     return (
         <>
-          <Modal show={showModal} size="7xl" onClose={() => setShowModal(false)} popup>
+          <Modal show={showModal} size="7xl" onClose={() => {
+            setShowModal(false)
+            window.location.assign(`/admin-posts`);
+            }
+            } popup>
             <Modal.Header />
             <Modal.Body>
               <div className="space-y-6">
@@ -144,9 +152,9 @@ export default function NewsCreateModal({showModal, setShowModal}) {
                     </Dropdown>
                 </div> */}
 
-                {/* Create Button */}
+                {/* Update Button */}
                 <div className="w-full text-right">
-                  <PrimaryButton className="text-right" onClick={() => handleCreate()}>Simpan</PrimaryButton>
+                  <PrimaryButton className="text-right" onClick={() => handleUpdate()}>Simpan</PrimaryButton>
                 </div>
 
               </div>

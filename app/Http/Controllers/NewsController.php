@@ -192,7 +192,7 @@ class NewsController extends Controller
                 'author' => auth()->user()->name,
             ]);
 
-            return redirect()->route('admin-dashboard');
+            return redirect()->route('admin-posts');
         }
 
         catch (\Exception $e)
@@ -203,8 +203,7 @@ class NewsController extends Controller
 
     public function view() //read
     {
-        $adminView = News::where('publish_status', true)
-                        ->latest()
+        $adminView = News::latest()
                         ->paginate(15);
 
         return Inertia::render('AdminPosts', [
@@ -212,7 +211,47 @@ class NewsController extends Controller
         ]);
     }
 
-    public function destroy($id)
+    public function edit(Request $request, $id)
+    {
+        try {
+            $request->validate([
+                'title' => 'required|string',
+                'imageCaption' => 'required|string',
+                'content' => 'required|string',
+                'category' => 'required|string',
+                'publishStatus' => 'required|string',
+            ]);
+
+            $news = News::findOrFail($id);
+
+            $news->fill([
+                'title' => $request->title,
+                'image_caption' => $request->imageCaption,
+                'content' => $request->content,
+                'category' => $request->category,
+                'publish_status' => $request->publishStatus,
+            ]);
+
+            if ($request->hasFile('image')) {
+                if (Storage::exists($news->image)) {
+                    Storage::delete($news->image);
+                }
+
+                $imageName = uniqid().'.'.$request->image->extension();
+                $request->image->storeAs('public', $imageName, 'local');
+                $news->image = 'storage/' . $imageName;
+            }
+
+            $news->save();
+
+            return redirect()->route('admin-posts')->with('success', 'News updated successfully!');
+        } catch (\Exception $e) {
+            return response()->json(['message' => 'Failed to update news', 'error' => $e->getMessage()]);
+        }
+    }
+
+
+    public function destroy($id) //delete
     {
         try {
             $news = News::findOrFail($id);
@@ -223,13 +262,13 @@ class NewsController extends Controller
 
             $news->delete();
 
-            return redirect()->route('admin-dashboard')->with('success', 'News deleted successfully!');
+            return redirect()->route('admin-posts')->with('success', 'News deleted successfully!');
         } catch (\Exception $e) {
             return response()->json(['message' => 'Failed to delete news', 'error' => $e->getMessage()]);
         }
     }
 
-    public function updatePublishStatus(Request $request, $id)
+    public function updatePublishStatus(Request $request, $id) //publish toggle
     {
         try {
             $request->validate([
@@ -241,7 +280,7 @@ class NewsController extends Controller
                 'publish_status' => $request->publishStatus,
             ]);
 
-            return redirect()->route('admin-dashboard')->with('success', 'Publish successfully!');
+            return redirect()->route('admin-posts')->with('success', 'Publish successfully!');
         }
 
         catch (\Exception $e) {

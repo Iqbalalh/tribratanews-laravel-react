@@ -39,9 +39,12 @@ Route::group(['middleware' => 'auth'], function() {
     Route::group(['middleware' => 'checkRole:admin'], function() {
         Route::inertia('/admin-dashboard', 'AdminDashboard')->name('admin-dashboard');
         Route::inertia('/admin-posts', 'AdminPosts')->name('admin-posts');
-        Route::get('/admin-posts', [NewsController::class, 'view'])->name('admin-posts');
         Route::inertia('/admin-users', 'AdminUsers')->name('admin-users');
-        Route::post('/news', [NewsController::class, 'store']);
+        Route::post('/api/create-news', [NewsController::class, 'store']);
+        Route::get('/admin-posts', [NewsController::class, 'view'])->name('admin-posts');
+        Route::post('/api/update-news/{id}', [NewsController::class, 'edit']);
+        Route::post('/api/delete-news/{id}', [NewsController::class, 'destroy']);
+        Route::post('/api/update-publish-status/{id}', [NewsController::class, 'updatePublishStatus']);
     });
     Route::group(['middleware' => 'checkRole:editor'], function() {
         Route::inertia('/editor-dashboard', 'EditorDashboard')->name('editor-dashboard');

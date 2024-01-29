@@ -9,6 +9,7 @@ import SocialMediaContainer from "@/Components/SocialMediaContainer";
 import ContentNewsCard from "@/Components/ContentNewsCard";
 
 export default function (props) {
+    console.log(props)
     return (
         <div
             className="lg:flex lg:flex-col items-center justify-center"
@@ -20,7 +21,7 @@ export default function (props) {
             </div>
             <div className="hl-row lg:w-10/12 lg:mt-40 grid md:grid-cols-2 lg:grid-cols-3 mb-4">
                 <div className="lg:col-span-2 md:col-span-1">
-                    <NewsCarousel props={props} />
+                    <NewsCarousel props={props.headline} />
                 </div>
                 <div className="lg:w-full lg:col-span-1 md:col-span-1">
                     <div className="grid grid-cols-1 md:grid-rows-4 gap-4">
@@ -45,7 +46,7 @@ export default function (props) {
                         {(linkRef) => (
                             <div className="lg:flex lg:flex-row block">
                                 <div className="lg:w-2/3">
-                                    <NewsCarousel props={props} />
+                                    <NewsCarousel props={props.sport_home} />
                                 </div>
                                 <div className="lg:w-1/3">
                                     <div className="grid grid-cols-1 gap-8 lg:gap-12">
@@ -117,7 +118,7 @@ export default function (props) {
                         {(linkRef) => (
                             <div className="lg:flex lg:flex-row block">
                                 <div className="lg:w-2/3">
-                                    <NewsCarousel props={props} />
+                                    <NewsCarousel props={props.health_home} />
                                 </div>
                                 <div className="lg:w-1/3">
                                     <div className="grid grid-cols-1 gap-8">

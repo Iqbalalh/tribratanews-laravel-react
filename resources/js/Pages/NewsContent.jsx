@@ -34,8 +34,8 @@ export default function NewsContent() {
                     <div className="lg:col-span-3 md:col-span-1 justify-left items-center lg:mr-5">
                         <center><img className="min-w-full sm:max-h-48 md:max-h-56 lg:max-h-full img-content" src={`/storage/${imagePath}`} alt="Image" /></center>
                         <h2 className="text-left lg:text-lg text-sm italic text-gray-500 w-full">{props.detail.image_caption}</h2>
-                        <div className="lg:text-xl text-lg mt-10">
-                            <Link className="text-cyan-700 font-bold italic flex" href="https://tribratanews.lampung.polri.go.id/">
+                        <div className="lg:text-xl text-lg mt-5">
+                            <Link className="text-cyan-700 mb-3 font-bold italic flex" href="https://tribratanews.lampung.polri.go.id/">
                                 tribratanews.lampung.polri.go.id
                             </Link>
                             {HTMLReactParser(props.detail.content)}

@@ -1,6 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head } from '@inertiajs/react';
-import CustomSideBar from '@/Components/AdminSideBar';
+import AdminSideBar from '@/Components/AdminSideBar';
 
 export default function AdminUsers({ auth }) {
     return (
@@ -10,7 +10,7 @@ export default function AdminUsers({ auth }) {
         >
             <Head title="Users" />
             <div className="container flex">
-                <CustomSideBar />
+                <AdminSideBar />
                     <div className="crud m-10">
                     </div>
             </div>

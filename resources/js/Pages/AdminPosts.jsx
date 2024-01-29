@@ -5,17 +5,55 @@ import CustomSideBar from '@/Components/AdminSideBar';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { useState } from 'react';
 import NewsCreateModal from '@/Components/NewsCreateModal';
+import NewsUpdateModal from '@/Components/NewsUpdateModal';
 import { Table, ToggleSwitch, Pagination, ButtonGroup, Button } from 'flowbite-react';
 import { MdDelete, MdRemoveRedEye, MdEditSquare } from "react-icons/md";
 import DateText from '@/Components/DateText';
+import { Inertia } from '@inertiajs/inertia';
+import NewsViewModal from '@/Components/NewsViewModal';
 
 export default function AdminPosts({ auth, adminView }) {
     const [showCreateModal, setShowCreateModal] = useState(false);
+    const [showViewModal, setShowViewModal] = useState(false);
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [editPost, setEditPost] = useState(null);
     const [currentPage, setCurrentPage] = useState(adminView.current_page);
 
     const onPageChange = (page) => {
         setCurrentPage(page);
         window.location.assign(`${adminView.path}?page=${page}`);
+    };
+
+    const handleUpdatePublishStatus = (postId, currentPublishStatus) => {
+        const newPublishStatus = !currentPublishStatus;
+
+        Inertia.post(`/api/update-publish-status/${postId}`, {
+            publishStatus: newPublishStatus,
+        }).then((response) => {
+            console.log('Publish status updated successfully:', response);
+        }).catch((error) => {
+            console.error('Error updating publish status:', error);
+        });
+    };
+
+    const handleEditPost = (post) => {
+        setEditPost(post);
+        setShowEditModal(true);
+    };
+
+    const handleViewPost = (post) => {
+        setEditPost(post);
+        setShowViewModal(true);
+    };
+
+    const handleDeleteNews = (postId) => {
+        Inertia.post(`/api/delete-news/${postId}`, {})
+            .then((response) => {
+                console.log('Deleted successfully:', response);
+            })
+            .catch((error) => {
+                console.error('Error deleting News:', error);
+            });
     };
 
     return (
@@ -39,7 +77,7 @@ export default function AdminPosts({ auth, adminView }) {
                                 <Table.HeadCell style={{ width: "10%" }}>Kategori</Table.HeadCell>
                                 <Table.HeadCell style={{ width: "10%" }}>Author</Table.HeadCell>
                                 <Table.HeadCell style={{ width: "15%" }}>Tanggal</Table.HeadCell>
-                                <Table.HeadCell style={{ width: "10%" }}>Publish</Table.HeadCell>
+                                <Table.HeadCell style={{ width: "10%" }}>Status</Table.HeadCell>
                                 <Table.HeadCell style={{ width: "15%" }}>Aksi</Table.HeadCell>
                                 </Table.Head>
                                 <Table.Body className="divide-y">
@@ -52,23 +90,29 @@ export default function AdminPosts({ auth, adminView }) {
                                             <Table.Cell style={{ width: "15%" }}><DateText date={post.created_at} textColor="text-gray-600" textSize="text-xs" /></Table.Cell>
                                             <Table.Cell style={{ width: "15%" }}>
                                                 <div className="flex gap-2 items-center">
-                                                    {post.publish_status === true ? "PUBLISH" : "DRAFT"}
+                                                    {post.publish_status === true ? "TAYANG" : "DRAFT"}
                                                     <ToggleSwitch
                                                         checked={post.publish_status}
-                                                        // onChange={handlePublish()}
+                                                        onChange={() => handleUpdatePublishStatus(post.id, post.publish_status)}
                                                     />
                                                 </div>
                                             </Table.Cell>
                                             <Table.Cell style={{ width: "20%" }}>
                                                 <div className="flex">
                                                     <Button.Group>
-                                                        <Button color="gray">
+                                                        <Button
+                                                            color="gray"
+                                                            onClick={() => handleViewPost(post)}>
                                                             <MdRemoveRedEye className="h-5 w-5" />
                                                         </Button>
-                                                        <Button color="gray">
+                                                        <Button
+                                                            color="gray"
+                                                            onClick={() => handleEditPost(post)} >
                                                             <MdEditSquare className="h-5 w-5" />
                                                         </Button>
-                                                        <Button color="gray">
+                                                        <Button
+                                                            color="gray"
+                                                            onClick={() => handleDeleteNews(post.id)}>
                                                             <MdDelete className="h-5 w-5" />
                                                         </Button>
                                                     </Button.Group>
@@ -89,6 +133,8 @@ export default function AdminPosts({ auth, adminView }) {
                         </div>
                     </div>
                     <NewsCreateModal showModal={showCreateModal} setShowModal={setShowCreateModal}/>
+                    {showViewModal && <NewsViewModal showModal={showViewModal} setShowModal={setShowViewModal} payload={editPost}/>}
+                    {showEditModal && <NewsUpdateModal showModal={showEditModal} setShowModal={setShowEditModal} payload={editPost} />}
             </div>
         </AuthenticatedLayout>
         </div>
