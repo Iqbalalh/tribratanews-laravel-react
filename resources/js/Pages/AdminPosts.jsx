@@ -1,7 +1,7 @@
 'use client';
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
-import CustomSideBar from '@/Components/AdminSideBar';
+import AdminSideBar from '@/Components/AdminSideBar';
 import PrimaryButton from '@/Components/PrimaryButton';
 import { useState } from 'react';
 import NewsCreateModal from '@/Components/NewsCreateModal';
@@ -64,7 +64,7 @@ export default function AdminPosts({ auth, adminView }) {
         >
             <Head title="Posts" />
             <div className="flex max-h-screen">
-                <CustomSideBar />
+                <AdminSideBar />
                     <div className="crud mt-5 m-10">
                         <PrimaryButton onClick={() => setShowCreateModal(true)}>
                             Create
@@ -86,7 +86,7 @@ export default function AdminPosts({ auth, adminView }) {
                                             <Table.Cell style={{ width: "5%" }}>{post.id} </Table.Cell>
                                             <Table.Cell style={{ width: "35%" }}>{post.title}</Table.Cell>
                                             <Table.Cell style={{ width: "10%" }}>{post.category}</Table.Cell>
-                                            <Table.Cell style={{ width: "10%" }}>{post.author}</Table.Cell>
+                                            <Table.Cell style={{ width: "10%" }}>{post.author.name}</Table.Cell>
                                             <Table.Cell style={{ width: "15%" }}><DateText date={post.created_at} textColor="text-gray-600" textSize="text-xs" /></Table.Cell>
                                             <Table.Cell style={{ width: "15%" }}>
                                                 <div className="flex gap-2 items-center">

@@ -14,7 +14,7 @@ class CreateNewsTable extends Migration {
             $table->string('image_caption')->nullable();
             $table->text('content');
             $table->string('category');
-            $table->string('author');
+            $table->foreignId('author')->constrained('users')->onDelete('cascade');
             $table->boolean('publish_status');
             $table->timestamps();
         });

@@ -28,4 +28,9 @@ class News extends Model
         'author' => '',
         'publish_status' => '',
     ];
+
+    public function author()
+    {
+        return $this->belongsTo(User::class, 'author');
+    }
 }

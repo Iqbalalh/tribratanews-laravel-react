@@ -24,7 +24,7 @@ export default function (props) {
                     <NewsCarousel props={props.headline} />
                 </div>
                 <div className="lg:w-full lg:col-span-1 md:col-span-1">
-                    <div className="grid grid-cols-1 md:grid-rows-4 gap-4">
+                    <div className="grid grid-cols-1 md:grid-rows-4 gap-8">
                         {props.headline.slice(0, 5).map((item) => (
                             <div className="sm:col-span-1 px-4 lg:px-0" key={item.id}>
                                 <BreakingNews

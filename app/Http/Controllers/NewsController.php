@@ -6,6 +6,8 @@ use App\Http\Resources\NewsCollection;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use App\Models\News;
+use App\Models\User;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Log;
 
@@ -59,7 +61,8 @@ class NewsController extends Controller
     }
 
     public function berita($id) {
-        $detail = News::find($id);
+        $detail = News::with('author')
+                        ->find($id);
 
         $headline = News::where('publish_status', true)
                         ->latest()
@@ -189,7 +192,7 @@ class NewsController extends Controller
                 'content' => $request->content,
                 'category' => $request->category,
                 'publish_status' => $request->publishStatus,
-                'author' => auth()->user()->name,
+                'author' => auth()->user()->id,
             ]);
 
             return redirect()->route('admin-posts');
@@ -203,11 +206,26 @@ class NewsController extends Controller
 
     public function view() //read
     {
-        $adminView = News::latest()
+        $adminView = News::with('author')
+                        ->latest()
                         ->paginate(15);
 
         return Inertia::render('AdminPosts', [
             'adminView' => $adminView,
+        ]);
+    }
+
+    public function editorView() //editor read
+    {
+        $editorId = auth()->user()->id;
+
+        $editorView = News::where('author', $editorId)
+                    ->with('author')
+                    ->latest()
+                    ->paginate(15);
+
+        return Inertia::render('EditorPosts', [
+            'editorView' => $editorView,
         ]);
     }
 
@@ -286,6 +304,44 @@ class NewsController extends Controller
         catch (\Exception $e) {
             return response()->json(['message' => 'Failed to update publish status', 'error' => $e->getMessage()], 500);
         }
+    }
+
+    public function contributionTable()
+    {
+        $contributionTable = User::leftJoin('news', 'users.id', '=', 'news.author')
+            ->select('users.name', DB::raw('COUNT(news.id) as total_news'))
+            ->groupBy('users.name')
+            ->orderByDesc('total_news')
+            ->get();
+
+        $categorySums = News::select('category', DB::raw('COUNT(id) as total'))
+            ->where('publish_status', true)
+            ->groupBy('category')
+            ->get();
+
+            return Inertia::render('AdminDashboard', [
+                'contribution' => $contributionTable,
+                'categorySums' => $categorySums,
+            ]);
+    }
+
+    public function editorContributionTable()
+    {
+        $contributionTable = User::leftJoin('news', 'users.id', '=', 'news.author')
+            ->select('users.name', DB::raw('COUNT(news.id) as total_news'))
+            ->groupBy('users.name')
+            ->orderByDesc('total_news')
+            ->get();
+
+        $categorySums = News::select('category', DB::raw('COUNT(id) as total'))
+            ->where('publish_status', true)
+            ->groupBy('category')
+            ->get();
+
+            return Inertia::render('EditorDashboard', [
+                'contribution' => $contributionTable,
+                'categorySums' => $categorySums,
+            ]);
     }
 
 }

@@ -8,7 +8,7 @@ export default function CategoryNewsCard({ id, image, title, date }) {
                 <img src={image} alt="Side Image" className="h-full w-full object-cover object-center" />
             </div>
             <div className="h-20 lg:px-4 px-0">
-                <h2 className="text-lg my-2 leading-none">{title}</h2>
+                <h2 className="text-lg my-2 leading-none line-clamp-2">{title}</h2>
                 <DateText date={date} textColor="text-gray-600" textSize="text-sm" />
             </div>
         </Link>

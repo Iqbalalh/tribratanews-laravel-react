@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\Auth\RedirectAuthenticatedUsersController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,15 +41,28 @@ Route::group(['middleware' => 'auth'], function() {
         Route::inertia('/admin-dashboard', 'AdminDashboard')->name('admin-dashboard');
         Route::inertia('/admin-posts', 'AdminPosts')->name('admin-posts');
         Route::inertia('/admin-users', 'AdminUsers')->name('admin-users');
+
         Route::post('/api/create-news', [NewsController::class, 'store']);
         Route::get('/admin-posts', [NewsController::class, 'view'])->name('admin-posts');
         Route::post('/api/update-news/{id}', [NewsController::class, 'edit']);
         Route::post('/api/delete-news/{id}', [NewsController::class, 'destroy']);
         Route::post('/api/update-publish-status/{id}', [NewsController::class, 'updatePublishStatus']);
+
+        Route::get('/admin-users', [UserController::class, 'view'])->name('admin-users');
+
+        Route::get('/admin-dashboard', [NewsController::class, 'contributionTable'])->name('admin-dashboard');
     });
+
     Route::group(['middleware' => 'checkRole:editor'], function() {
         Route::inertia('/editor-dashboard', 'EditorDashboard')->name('editor-dashboard');
         Route::inertia('/editor-posts', 'EditorPosts')->name('editor-posts');
+
+        Route::post('/api/create-news', [NewsController::class, 'store']);
+        Route::get('/editor-posts', [NewsController::class, 'editorView'])->name('editor-posts');
+        Route::post('/api/update-news/{id}', [NewsController::class, 'edit']);
+        Route::post('/api/delete-news/{id}', [NewsController::class, 'destroy']);
+
+        Route::get('/editor-dashboard', [NewsController::class, 'editorContributionTable'])->name('editor-dashboard');
     });
 });
 

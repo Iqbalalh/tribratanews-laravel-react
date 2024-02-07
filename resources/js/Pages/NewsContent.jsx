@@ -45,7 +45,7 @@ export default function NewsContent() {
                         <SocialMediaContainer title="Kanal Youtube" src="https://widget.taggbox.com/148533" textColor="#FF0000" />
                     </div>
                 </div>
-                <h3 className="mt-5 text-lg text-gray-600">Author: {props.detail.author}</h3>
+                <h3 className="mt-5 text-lg text-gray-600">Author: {props.detail.author.name}</h3>
                 <ReadNext title={props.headline[3].title} image={`/storage/${imgNext}`} id={props.headline[3].id}/>
             </div>
 
