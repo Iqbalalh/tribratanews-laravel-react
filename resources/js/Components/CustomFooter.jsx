@@ -16,25 +16,25 @@ export default function CustomFooter() {
                 <FooterLinkGroup className="list-none gap-5 mb-5 justify-center ">
                     <FooterLink
                         className="text-lg font-bold text-blue-900 md:visible mr-0"
-                        href="#"
+                        href="https://humas.polri.go.id/category/satwil/polda-lampung/"
                     >
                         Polda Lampung
                     </FooterLink>
                     <FooterLink
                         className="text-lg font-bold text-blue-900 md:visible mr-0"
-                        href="#"
+                        href="https://humas.polri.go.id/category/satwil/polda-lampung/polres-lampung-utara/"
                     >
                         Polres Lampung Utara
                     </FooterLink>
                     <FooterLink
                         className="text-lg font-bold text-blue-900 md:visible mr-0"
-                        href="#"
+                        href="https://humas.polri.go.id/category/satwil/polda-lampung/polres-lampung-tengah/"
                     >
                         Polres Lampung Tengah
                     </FooterLink>
                     <FooterLink
                         className="text-lg font-bold text-blue-900 md:visible mr-0"
-                        href="#"
+                        href="https://humas.polri.go.id/category/satwil/polda-lampung/polres-lampung-barat/"
                     >
                         Polres Lampung Barat
                     </FooterLink>
@@ -44,32 +44,32 @@ export default function CustomFooter() {
                 <div className="flex flex-col sm:flex-row justify-between">
                     <FooterCopyright
                         className="text-white text-sm md:visible lg:text-lg mb-4 sm:mb-0"
-                        href="#"
+                        href="https://humas.polri.go.id/category/satwil/polda-lampung/"
                         by="Bidhumas Polda Lampung"
                         year={2024}
                     />
                     <div className="flex flex-col mb-4 sm:mb-0 sm:flex-row sm:space-x list-none">
                         <FooterLink
                             className="text-white text-sm md:visible lg:text-lg"
-                            href="/tentang-kami"
+                            href="https://tribratanews.polri.go.id/tentang-kami"
                         >
                             Tentang Kami
                         </FooterLink>
                         <FooterLink
                             className="text-white text-sm md:visible lg:text-lg"
-                            href="/redaksi"
+                            href="https://tribratanews.polri.go.id/redaksi"
                         >
                             Redaksi
                         </FooterLink>
                         <FooterLink
                             className="text-white text-sm md:visible lg:text-lg"
-                            href="/pedoman-media-siber"
+                            href="https://tribratanews.polri.go.id/pedoman-media-siber"
                         >
                             Pedoman Media Siber
                         </FooterLink>
                         <FooterLink
                             className="text-white text-sm md:visible lg:text-lg"
-                            href="/kontak-kami"
+                            href="https://tribratanews.polri.go.id/kontak-kami"
                         >
                             Kontak Kami
                         </FooterLink>

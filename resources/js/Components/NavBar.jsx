@@ -54,10 +54,10 @@ export default function NavBar({ props }) {
                     </div>
 
                     <div className="flex pl-5 items-center space-x-5">
-                        <Link className="text-white" href="">
+                        <Link className="text-white" href="https://tribratanews.polri.go.id/profil">
                             Profil
                         </Link>
-                        <Link className="text-white" href="">
+                        <Link className="text-white" href="https://tribratanews.polri.go.id/visi-misi">
                             Visi Misi
                         </Link>
                         <Link className="bg-white text-red-900 rounded-full py-1 px-2 hover:cursor-pointer" href="/login">
